@@ -23,6 +23,11 @@ namespace VisitaFacil.WebApp.Controllers
             return View();
         }
 
+        public IActionResult Login() // nao sei se está certo 
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

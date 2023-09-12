@@ -8,8 +8,13 @@ namespace VisitaFacil.WebApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View("Login");
         }
+
+        //public IActionResult Login() // nao sei se está certo
+        //{
+        //    return View();
+        //}
 
         [HttpPost]
         public async Task<IActionResult> Autenticar(UsuarioViewModel entidade)
