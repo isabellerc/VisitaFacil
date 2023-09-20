@@ -26,9 +26,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ValueObjects", "ValueObjects", "{D89A20E2-C766-4EAD-BEB4-A40863A947F8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{7C94AAAC-4040-4C2E-B981-CBA5104DCDD2}"
-	ProjectSection(SolutionItems) = preProject
-		ClassEntities.cs = ClassEntities.cs
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
