@@ -8,10 +8,14 @@ namespace VisitaFacil.Dominio.Entities
 {
     public class DadosPessoais
     {
-        public string nomeCompleto { get; set; }
-        public string cpf { get; set; }
-        public string celular { get; set; }
-        public string email { get; set; }
-        public Endereco endereco { get; set; }
+        public string Nome { get; set; }
+        public string Cpf { get; set; }
+        public DateTime dataNascimento { get; set; }
+        public string Logradouro { get; set; }
+        public string Telefone1 { get; set; }
+        public string Telefone2 { get; set; }
+        public string Email { get; set; }
+        public bool Ativo { get; set; }
+        
     }
 }

@@ -11,8 +11,9 @@ namespace VisitaFacil.Dominio.Entities
         public int codigoInstituicao { get; set; }
         public string razaoSocial { get; set; }
         public string CNPJ { get; set; }
-        public string endereco { get; set; }
-        public string telefone { get; set; }
-        public string email { get; set; }
+        public string logradouro { get; set; }
+        public string telefone1 { get; set; }
+        public string telefone2 { get; set; }
+        public bool Ativo { get; set; }
     }
 }

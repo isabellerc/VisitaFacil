@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace VisitaFacil.Dominio.Entities
 {
-    public class Idoso
+    public class Idoso : DadosPessoais
     {
-        public string nomeCompleto { get; set; }
-        public string cpf { get; set; }
+       public int idIdoso { get; set; }
         public ParenteProximo parenteProximo { get; set; }
     }
 }
