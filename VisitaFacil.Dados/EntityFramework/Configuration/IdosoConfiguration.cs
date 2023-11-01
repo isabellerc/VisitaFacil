@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VisitaFacil.Dados.EntityFramework.Configuration
 {
-    internal class Idoso
+    internal class IdosoConfiguration
     {
     }
 }

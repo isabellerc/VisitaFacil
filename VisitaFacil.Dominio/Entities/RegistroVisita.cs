@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisitaFacil.Dominio
+namespace VisitaFacil.Dominio.Entities
 {
     public class RegistroVisita
     {
@@ -13,6 +13,6 @@ namespace VisitaFacil.Dominio
 
         public DateTime data { get; set; }
         public DateTime hora { get; set; }
-       
+
     }
 }

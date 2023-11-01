@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisitaFacil.Dominio
+namespace VisitaFacil.Dominio.Entities
 {
     public class Instituicao
     {

@@ -6,29 +6,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VisitaFacil.Dominio;
+using VisitaFacil.Dominio.Entities;
 
-namespace VisitaFacil.Dados
+namespace VisitaFacil.Dados.EntityFramework.Configuration
 {
-    //public class EnderecoConfiguration : IEntityTypeConfiguration<Endereco>
-    //{
-    //    public void Configure(EntityTypeBuilder<Endereco> builder)
-    //    {
-    //        builder.ToTable("Endereco");
-    //        builder.HasKey(f => f.EnderecoID);
+    public class EnderecoConfiguration : IEntityTypeConfiguration<Endereco>
+    {
+        public void Configure(EntityTypeBuilder<Endereco> builder)
+        {
+            builder.ToTable("Endereco");
+            builder.HasKey(f => f.EnderecoID);
 
-    //        builder.HasKey(F=> new {f})
-    //        builder.ToTable("Endereco");
-    //        builder.Property(f=> f.logradouro)
-    //            .HasColumnNome("logradouro")
-    //            .HasColumnType("string")
+            //alterar isso aqui:
+            builder
+                .Property(f => f.EnderecoID)
+                .UseIdentityColumn()
+                .HasColumnName("EnderecoID")
+                .HasColumnType("int");
+
+            builder
+                .Property(f => f.CPF)
+                .HasColumnName("CPF")
+                .HasColumnType("char(11)");
+
+            builder
+                .Property(f => f.Nome)
+                .HasColumnName("Nome")
+                .HasColumnType("varchar(100)");
+
+            builder
+                .Property(f => f.DataNascimento)
+                .HasColumnName("DataNascimento")
+                .HasColumnType("date");
+
+            builder
+                .Property(f => f.Sexo)
+                .HasColumnName("Sexo")
+                .HasColumnType("char(1)");
 
 
-    //               public string logradouro { get; set; }
-    //    public int numero { get; set; }
-    //    public string bairro { get; set; }
-    //    public string complemento { get; set; }
-    //    public string cidade { get; set; }
-    //    public string estado { get; set; }
-    //}
-    //}
+        }
+    }
 }
