@@ -21,6 +21,7 @@ namespace VisitaFacil.Dados
         public DbSet<Endereco> Endereco { get; set; }
         public DbSet<Cidade> Cidade { get; set; }
         public DbSet<Visita> RegistroVisita { get; set; }
+        
         public Contexto() : base() { }
       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,8 +33,16 @@ namespace VisitaFacil.Dados
                                    TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        {       
+            modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
+            modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
+            modelBuilder.ApplyConfiguration(new IdosoConfiguration());
+            modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
+            modelBuilder.ApplyConfiguration(new LoginConfiguration());
             modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
+            modelBuilder.ApplyConfiguration(new CidadeConfiguration());
+            modelBuilder.ApplyConfiguration(new VisitaConfiguration());
+
         }
     }
 }
