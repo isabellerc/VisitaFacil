@@ -19,9 +19,9 @@ namespace VisitaFacil.Dados
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93:1434;
-                                   DataBase = DB043411;
-                                   User ID = RA043411;
-                                   Password = 043411;
+                                   DataBase = DB044263;
+                                   User ID = RA044263;
+                                   Password = 044263;
                                    TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
