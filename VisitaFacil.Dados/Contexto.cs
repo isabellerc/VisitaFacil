@@ -13,7 +13,14 @@ namespace VisitaFacil.Dados
 
         // criar isso abaixo para cada tabela
     {
+        public DbSet<Instituicao> Instituicao { get; set; }
+        public DbSet<Funcionario> Funcionario { get; set; }
+        public DbSet<Idoso> Idoso { get; set; }
+        public DbSet<Visitante> Visitante { get; set; }
+        public DbSet<Login> Login { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
+        public DbSet<Cidade> Cidade { get; set; }
+        public DbSet<Visita> RegistroVisita { get; set; }
         public Contexto() : base() { }
       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
