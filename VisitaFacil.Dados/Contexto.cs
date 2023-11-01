@@ -16,6 +16,7 @@ namespace VisitaFacil.Dados
         public DbSet<Instituicao> Instituicao { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Idoso> Idoso { get; set; }
+        public DbSet<Parente> ParenteProximo { get; set; }
         public DbSet<Visitante> Visitante { get; set; }
         public DbSet<Login> Login { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
@@ -37,6 +38,7 @@ namespace VisitaFacil.Dados
             modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
             modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
             modelBuilder.ApplyConfiguration(new IdosoConfiguration());
+            modelBuilder.ApplyConfiguration(new ParenteProximoConfiguration());
             modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
             modelBuilder.ApplyConfiguration(new LoginConfiguration());
             modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
