@@ -18,11 +18,20 @@ namespace VisitaFacil.WebApp.Controllers
         private readonly DadosPessoaisServico dadosPessoaisServico;
         public DadosPessoaisServico _dadosPessoaisServico = new DadosPessoaisServico();
         //[HttpPost]
-        public string SalvarDadosPessoais(DadosPessoais dadosPessoais)
+
+        public IActionResult SalvarDadosPessoais(VisitaFacil.Dominio.Entities.DadosPessoais dadosPessoais)
         {
             _dadosPessoaisServico.SalvarDadosPessoais(dadosPessoais);
-            return "Ok";
+            return Ok();
         }
+
+
+        //comentei isso para testar:
+        //public string SalvarDadosPessoais(DadosPessoais dadosPessoais)
+        //{
+        //    _dadosPessoaisServico.SalvarDadosPessoais(dadosPessoais);
+        //    return "Ok";
+        //}
         public IActionResult Index()
         {
             return View();

@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VisitaFacil.Dominio.Entities;
+using VisitaFacil.Dados.EntityFramework.Configuration;
+using VisitaFacil.Dados;
 
 namespace VisitaFacil.Dados.EntityFramework.Configuration
 {

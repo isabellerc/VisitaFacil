@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="VisitaFacil.Dados">
+      <HintPath>..\VisitaFacil.Dados\bin\Debug\net6.0\VisitaFacil.Dados.dll</HintPath>
+    </Reference>
+    <Reference Include="VisitaFacil.Servico">
+      <HintPath>..\VisitaFacil.Servico\bin\Debug\net6.0\VisitaFacil.Servico.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

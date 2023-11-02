@@ -10,10 +10,15 @@ using VisitaFacil.Dominio.Entities;
 
 namespace VisitaFacil.Dados
 {
-    public class Contexto : DbContext
-
-        // criar isso abaixo para cada tabela
+    public class Contexto : DbContext 
+    
     {
+        //vou comentar:
+        public Contexto(DbContextOptions<Contexto> options) : base(options)
+        {
+        }
+
+
         public DbSet<Instituicao> Instituicao { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Idoso> Idoso { get; set; }
@@ -24,15 +29,18 @@ namespace VisitaFacil.Dados
         public DbSet<RegistroVisita> RegistroVisita { get; set; }
         public DbSet<DadosPessoais> DadosPessoais { get; set; }
         
-        public Contexto() : base() { }
+        public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
       
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93:1434;
-                                   DataBase = DB044263;
-                                   User ID = RA044263;
-                                   Password = 044263;
-                                   TrustServerCertificate=True");
+
+            optionsBuilder.UseSqlServer(@"Data source=201.62.57.93,1434;Database=DB044263;User ID=RA044263;Password=044263;TrustServerCertificate=True");
+
+            //optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93:1434;
+            //                       DataBase = DB044263;
+            //                       User ID = RA044263;
+            //                       Password = 044263;
+            //                       TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,40 +1,74 @@
-﻿//using Fluent.Infrastructure.FluentModel;
-//using Microsoft.AspNetCore.Mvc;
-//using VisitaFacil.Dominio.Entities;
-//using VisitaFacil.WebApp.Controllers;
-//using VisitaFacil.Dados.Repositorios;
+﻿using Microsoft.AspNetCore.Mvc;
+using VisitaFacil.Dados;
+using VisitaFacil.Dominio.Entities;
 
-
-//namespace VisitaFacil.WebApp.Controllers
+//como estava antes:
+//[Route("api/dadospessoais")]
+//[ApiController]
+//public class DadosPessoaisController : ControllerBase
 //{
+//    private readonly Contexto _context;
 
-//    public class DadosPessoaisController : Controller
+//    public DadosPessoaisController(Contexto context)
 //    {
-//        private readonly ApplicationDbContext _context;
-
-//        public DadosPessoaisController(ApplicationDbContext context)
-//        {
-//            _context = context;
-//        }
-
-//        [HttpPost]
-//        public IActionResult SalvarDadosPessoais(DadosPessoais dados)
-//        {
-//            if (ModelState.IsValid)
-//            {
-//                _context.DadosPessoais.Add(dados);
-//                _context.SaveChanges();
-//                return RedirectToAction("Sucesso"); // Redireciona para uma página de sucesso
-//            }
-//            // Se os dados não forem válidos, você pode retornar uma visão com mensagens de erro
-//            return View("Formulario", dados);
-//        }
-
-//        public IActionResult Formulario()
-//        {
-//            return View();
-//        }
+//        _context = context;
 //    }
 
-
+//    [HttpPost]
+//    public async Task<IActionResult> SalvarDadosPessoais([FromBody] DadosPessoais dados)
+//    {
+//        if (ModelState.IsValid)
+//        {
+//            // Valide e salve os dados no banco de dados usando o Entity Framework Core
+//            _context.DadosPessoais.Add(dados);
+//            await _context.SaveChangesAsync();
+//            return Ok();
+//        }
+//        else
+//        {
+//            return BadRequest(ModelState);
+//        }
+//    }
 //}
+
+[ApiController]
+[Route("api/dadospessoais")]
+public class DadosPessoaisController : ControllerBase
+{
+    [HttpPost]
+    public IActionResult Post([FromForm] DadosPessoais dadosPessoais)
+    {
+        if (ModelState.IsValid) // Certifique-se de que os dados são válidos
+        {
+            try
+            {
+                using (var contexto = new Contexto()) // Substitua 'SeuDbContext' pelo seu contexto do Entity Framework
+                {
+                    contexto.Add(dadosPessoais); // Adicione os dados ao contexto
+                    contexto.SaveChanges(); // Salve as mudanças no banco de dados
+                }
+
+                return Ok("Dados pessoais salvos com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao salvar os dados pessoais: {ex.Message}");
+            }
+        }
+
+        return BadRequest("Dados pessoais inválidos.");
+    }
+}
+
+public class DadosPessoais
+{
+    public string Nome { get; set; }
+    public string Cpf { get; set; }
+    public DateTime DataNascimento { get; set; }
+    public string Endereco { get; set; }
+    public string Telefone1 { get; set; }
+    public string Telefone2 { get; set; }
+    public string Email { get; set; }
+    public string Senha { get; set; }
+}
+
