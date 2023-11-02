@@ -17,7 +17,7 @@ namespace VisitaFacil.Dados
         public DbSet<Instituicao> Instituicao { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Idoso> Idoso { get; set; }
-        public DbSet<Parente> ParenteProximo { get; set; }
+        public DbSet<Parente> ParenteProximo { get; set; } // confirmar ordem: qual é do codigo e qual é do banco
         public DbSet<Visitante> Visitante { get; set; }
         public DbSet<Login> Login { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
