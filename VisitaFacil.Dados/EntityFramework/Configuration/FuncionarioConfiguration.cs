@@ -13,36 +13,49 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<Funcionario> builder)
         {
-            builder.ToTable("Funcionario");
-            builder.HasKey(f => f.FuncionarioID);
+            builder.ToTable("FUNCIONARIO", "dbo");
+            //builder.HasKey("IDFUNCIONARIO");
 
-            builder
-                .Property(f => f.FuncionarioID)
-                .UseIdentityColumn()
-                .HasColumnName("FuncionarioID")
-                .HasColumnType("int");
-
-            builder
-                .Property(f => f.CPF)
-                .HasColumnName("CPF")
-                .HasColumnType("char(11)");
+            //builder
+            //    .Property(f => f.IDFUNCIONARIO)
+            //    .UseIdentityColumn();
+            //    //.HasColumnName("idFuncionario")
+            //    //.HasColumnType("int");
 
             builder
                 .Property(f => f.Nome)
                 .HasColumnName("Nome")
-                .HasColumnType("varchar(100)");
+                .HasColumnType("varchar(200)");
 
             builder
-                .Property(f => f.DataNascimento)
+                .Property(f => f.Cpf)
+                .HasColumnName("Cpf")
+                .HasColumnType("char(11)");
+
+            builder
+                .Property(f => f.dataNascimento)
                 .HasColumnName("DataNascimento")
                 .HasColumnType("date");
 
             builder
-                .Property(f => f.Sexo)
-                .HasColumnName("Sexo")
+                .Property(f => f.Telefone1)
+                .HasColumnName("Telefone1")
+                .HasColumnType("varchar(11)");
+
+            builder
+                .Property(f => f.Telefone2)
+                .HasColumnName("Telefone2")
+                .HasColumnType("varchar(11)");
+
+            builder
+                .Property(f => f.Email)
+                .HasColumnName("Telefone2")
+                .HasColumnType("varchar(150)");
+
+            builder
+                .Property(f => f.Ativo)
+                .HasColumnName("Telefone2")
                 .HasColumnType("char(1)");
-
-
         }
     }
 }

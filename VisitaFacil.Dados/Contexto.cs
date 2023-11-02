@@ -17,12 +17,12 @@ namespace VisitaFacil.Dados
         public DbSet<Instituicao> Instituicao { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Idoso> Idoso { get; set; }
-        public DbSet<Parente> ParenteProximo { get; set; } // confirmar ordem: qual é do codigo e qual é do banco
+        public DbSet<ParenteProximo> Parente { get; set; } 
         public DbSet<Visitante> Visitante { get; set; }
-        public DbSet<Login> Login { get; set; }
+        //public DbSet<Login> Login { get; set; }
         public DbSet<Endereco> Endereco { get; set; }
-        public DbSet<Cidade> Cidade { get; set; }
-        public DbSet<Visita> RegistroVisita { get; set; }
+        public DbSet<RegistroVisita> RegistroVisita { get; set; }
+        public DbSet<DadosPessoais> DadosPessoais { get; set; }
         
         public Contexto() : base() { }
       
@@ -35,16 +35,19 @@ namespace VisitaFacil.Dados
                                    TrustServerCertificate=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {       
-            modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
+        {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
-            modelBuilder.ApplyConfiguration(new IdosoConfiguration());
-            modelBuilder.ApplyConfiguration(new ParenteProximoConfiguration());
-            modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
-            modelBuilder.ApplyConfiguration(new LoginConfiguration());
-            modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
-            modelBuilder.ApplyConfiguration(new CidadeConfiguration());
-            modelBuilder.ApplyConfiguration(new VisitaConfiguration());
+            modelBuilder.ApplyConfiguration(new DadosPessoaisConfiguration());
+            modelBuilder.Entity<RegistroVisita>().HasNoKey();
+            //modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
+            //modelBuilder.ApplyConfiguration(new IdosoConfiguration());
+            //modelBuilder.ApplyConfiguration(new ParenteProximoConfiguration());
+            //modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
+            //modelBuilder.ApplyConfiguration(new LoginConfiguration());
+            //modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
+            //modelBuilder.ApplyConfiguration(new CidadeConfiguration());
+            //modelBuilder.ApplyConfiguration(new VisitaConfiguration());
 
         }
     }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace VisitaFacil.Dominio.Entities
 {
-    public class Login
-    {
-        public Funcionario Funcionario { get; set; } // talvez retirar... precisa dele?
-        public string cpf { get; set; }
-        public string senha { get; set; }
-    }
+    //public class Login
+    //{
+        
+    //    public string cpf { get; set; }
+    //    public string senha { get; set; }
+    //}
 }

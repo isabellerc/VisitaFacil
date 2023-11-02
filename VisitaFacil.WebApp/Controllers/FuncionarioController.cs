@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using VisitaFacil.Dados;
+using VisitaFacil.Dominio.Entities;
 
 namespace VisitaFacil.WebApp.Controllers
 {
@@ -28,17 +30,17 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Excluir(int funcionarioId)
-        {
-            var objeto = db
-                .Funcionario
-                .First(f => f.FuncionarioID == funcionarioId);
+        //public IActionResult Excluir(int funcionarioId)
+        //{
+        //    var objeto = db
+        //        .Funcionario
+        //        .First(f => f.IDFUNCIONARIO == funcionarioId);
 
-            db.Funcionario.Remove(objeto);
-            db.SaveChanges();
+        //    db.Funcionario.Remove(objeto);
+        //    db.SaveChanges();
 
-            return RedirectToAction("Index");
-        }
+        //    return RedirectToAction("Index");
+        //}
 
     }
 }

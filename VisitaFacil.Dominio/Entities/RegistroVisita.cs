@@ -8,6 +8,7 @@ namespace VisitaFacil.Dominio.Entities
 {
     public class RegistroVisita
     {
+        public int IDVISITA { get; set; }
         public Visitante visitante { get; set; }
         public Idoso idoso { get; set; }
 

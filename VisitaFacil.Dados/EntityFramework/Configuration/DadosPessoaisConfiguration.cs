@@ -13,36 +13,54 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
     {
         public void Configure(EntityTypeBuilder<DadosPessoais> builder)
         {
-            builder.ToTable("Dados Pessoais");
-            builder.HasKey(f => f.DadosPessoaisID);
-            //ALTERAR AQUI
-            builder
-                .Property(f => f.FuncionarioID)
-                .UseIdentityColumn()
-                .HasColumnName("FuncionarioID")
-                .HasColumnType("int");
+            builder.ToTable("DadosPessoais"); // Nome da tabela
+            builder.HasKey(f => f.ID); // Definir a chave primária
 
-            builder
-                .Property(f => f.CPF)
-                .HasColumnName("CPF")
-                .HasColumnType("char(11)");
-
+            // Configuração das colunas
             builder
                 .Property(f => f.Nome)
                 .HasColumnName("Nome")
-                .HasColumnType("varchar(100)");
+                .HasColumnType("nvarchar(255)")
+                .IsRequired();
 
             builder
-                .Property(f => f.DataNascimento)
+                .Property(f => f.Cpf)
+                .HasColumnName("Cpf")
+                .HasColumnType("nvarchar(20)")
+                .IsRequired();
+
+            builder
+                .Property(f => f.dataNascimento)
                 .HasColumnName("DataNascimento")
                 .HasColumnType("date");
 
             builder
-                .Property(f => f.Sexo)
-                .HasColumnName("Sexo")
-                .HasColumnType("char(1)");
+                .Property(f => f.Endereco)
+                .HasColumnName("Endereco")
+                .HasColumnType("nvarchar(255)");
 
+            builder
+                .Property(f => f.Telefone1)
+                .HasColumnName("Telefone1")
+                .HasColumnType("nvarchar(20)");
 
+            builder
+                .Property(f => f.Telefone2)
+                .HasColumnName("Telefone2")
+                .HasColumnType("nvarchar(20)");
+
+            builder
+                .Property(f => f.Email)
+                .HasColumnName("Email")
+                .HasColumnType("nvarchar(255)");
+
+            builder
+                .Property(f => f.Ativo)
+                .HasColumnName("Ativo")
+                .HasColumnType("bit");
+
+            // Outras configurações, como índices, restrições, etc., podem ser adicionadas aqui conforme necessário.
         }
+
     }
 }

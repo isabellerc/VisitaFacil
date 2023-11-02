@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\VisitaFacil.Servico\VisitaFacil.Servico.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Update="Views\Home\Login.cshtml">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisitaFacil.Dominio.Entities
+namespace VisitaFacil.Dados.Repositorios
 {
-    public class Visitante : DadosPessoais
+    public class FuncionarioRepositorio
     {
-        
     }
 }
