@@ -17,7 +17,7 @@ namespace VisitaFacil.Dados
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
         }
-
+       
 
         public DbSet<Instituicao> Instituicao { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
@@ -30,18 +30,35 @@ namespace VisitaFacil.Dados
         public DbSet<DadosPessoais> DadosPessoais { get; set; }
         
         public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
-      
+
+
+
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+
+        //    optionsBuilder.UseSqlServer(@"Data source=201.62.57.93,1434;Database=DB044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
+        //    builder => builder.EnableRetryOnFailure());
+        //    base.OnConfiguring(optionsBuilder);
+
+        //}
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseSqlServer(
+                "Data source=201.62.57.93,1434;Database=DB044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
+                sqlServerOptionsAction: builder =>
+                {
+                    builder.EnableRetryOnFailure(
+                        maxRetryCount: 10, // Número máximo de tentativas
+                        maxRetryDelay: TimeSpan.FromSeconds(30), // Atraso máximo entre as tentativas
+                        errorNumbersToAdd: null // Números de erro personalizados a serem adicionados
+                    );
+                });
 
-            optionsBuilder.UseSqlServer(@"Data source=201.62.57.93,1434;Database=DB044263;User ID=RA044263;Password=044263;TrustServerCertificate=True");
-
-            //optionsBuilder.UseSqlServer(@"Data source = 201.62.57.93:1434;
-            //                       DataBase = DB044263;
-            //                       User ID = RA044263;
-            //                       Password = 044263;
-            //                       TrustServerCertificate=True");
+            base.OnConfiguring(optionsBuilder);
         }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

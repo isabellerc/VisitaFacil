@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VisitaFacil.Dados;
-using VisitaFacil.Dados.EntityFramework.Configuration;
-using VisitaFacil.Dados.Repositorios;
+//using VisitaFacil.Dados;
+//using VisitaFacil.Dados.EntityFramework.Configuration;
+//using VisitaFacil.Dados.Repositorios;
 
 
 namespace VisitaFacil.Dominio.Entities
