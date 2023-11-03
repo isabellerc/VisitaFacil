@@ -32,16 +32,6 @@ namespace VisitaFacil.Dados
         public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
 
 
-
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-
-        //    optionsBuilder.UseSqlServer(@"Data source=201.62.57.93,1434;Database=DB044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
-        //    builder => builder.EnableRetryOnFailure());
-        //    base.OnConfiguring(optionsBuilder);
-
-        //}
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
