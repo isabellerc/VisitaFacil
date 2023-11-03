@@ -18,6 +18,12 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
             builder.ToTable("DadosPessoais"); // Nome da tabela
             builder.HasKey(f => f.ID); // Definir a chave primária
 
+            builder
+                .Property(f => f.ID)
+                .UseIdentityColumn()
+                .HasColumnName("ID")
+                .HasColumnType("int");
+
             // Configuração das colunas
             builder
                 .Property(f => f.Nome)
@@ -56,10 +62,12 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
                 .HasColumnName("Email")
                 .HasColumnType("nvarchar(255)");
 
-            builder
-                .Property(f => f.Ativo)
-                .HasColumnName("Ativo")
-                .HasColumnType("bit");
+            //builder
+            //    .Property(f => f.Ativo)
+            //    .HasColumnName("Ativo")
+            //    .HasColumnType("bit");
+
+
 
             // Outras configurações, como índices, restrições, etc., podem ser adicionadas aqui conforme necessário.
         }

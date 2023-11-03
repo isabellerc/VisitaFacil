@@ -15,5 +15,6 @@ namespace VisitaFacil.Dominio.Entities
         public string complemento { get; set; }
         public string cidade { get; set; }
         public string estado { get; set; }
+       
     }
 }

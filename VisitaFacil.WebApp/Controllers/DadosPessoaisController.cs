@@ -31,32 +31,42 @@ using VisitaFacil.Dominio.Entities;
 //    }
 //}
 
-[ApiController]
-[Route("api/dadospessoais")]
+//[ApiController]
+//[Route("api/dadospessoais")]
 public class DadosPessoaisController : ControllerBase
 {
+    //[HttpPost]
+    //public IActionResult Post([FromForm] DadosPessoais dadosPessoais)
+
+    //{
+    //    if (ModelState.IsValid) // Certifique-se de que os dados são válidos
+    //    {
+    //        try
+    //        {
+    //            using (var contexto = new Contexto()) // Substitua 'SeuDbContext' pelo seu contexto do Entity Framework
+    //            {
+    //                contexto.Add(dadosPessoais); // Adicione os dados ao contexto
+    //                contexto.SaveChanges(); // Salve as mudanças no banco de dados
+    //            }
+
+    //            return Ok("Dados pessoais salvos com sucesso.");
+    //        }
+    //        catch (Exception ex)
+    //        {
+    //            return BadRequest($"Erro ao salvar os dados pessoais: {ex.Message}");
+    //        }
+    //    }
+
+    //    return BadRequest("Dados pessoais inválidos.");
+    //}
+
+    private Contexto db = new Contexto();
     [HttpPost]
-    public IActionResult Post([FromForm] DadosPessoais dadosPessoais)
+    public IActionResult Post(DadosPessoais dadosPessoais)
     {
-        if (ModelState.IsValid) // Certifique-se de que os dados são válidos
-        {
-            try
-            {
-                using (var contexto = new Contexto()) // Substitua 'SeuDbContext' pelo seu contexto do Entity Framework
-                {
-                    contexto.Add(dadosPessoais); // Adicione os dados ao contexto
-                    contexto.SaveChanges(); // Salve as mudanças no banco de dados
-                }
-
-                return Ok("Dados pessoais salvos com sucesso.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao salvar os dados pessoais: {ex.Message}");
-            }
-        }
-
-        return BadRequest("Dados pessoais inválidos.");
+        db.DadosPessoais.Add(dadosPessoais);
+        db.SaveChanges();
+        return RedirectToAction("Index");
     }
 }
 

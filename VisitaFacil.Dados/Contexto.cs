@@ -19,14 +19,14 @@ namespace VisitaFacil.Dados
         }
        
 
-        public DbSet<Instituicao> Instituicao { get; set; }
-        public DbSet<Funcionario> Funcionario { get; set; }
-        public DbSet<Idoso> Idoso { get; set; }
-        public DbSet<ParenteProximo> Parente { get; set; } 
-        public DbSet<Visitante> Visitante { get; set; }
+        //public DbSet<Instituicao> Instituicao { get; set; }
+        //public DbSet<Funcionario> Funcionario { get; set; }
+        //public DbSet<Idoso> Idoso { get; set; }
+        //public DbSet<ParenteProximo> Parente { get; set; } 
+        //public DbSet<Visitante> Visitante { get; set; }
         //public DbSet<Login> Login { get; set; }
-        public DbSet<Endereco> Endereco { get; set; }
-        public DbSet<RegistroVisita> RegistroVisita { get; set; }
+        //public DbSet<Endereco> Endereco { get; set; }
+        //public DbSet<RegistroVisita> RegistroVisita { get; set; }
         public DbSet<DadosPessoais> DadosPessoais { get; set; }
         
         public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
@@ -35,12 +35,12 @@ namespace VisitaFacil.Dados
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Data source=201.62.57.93,1434;Database=DB044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
+                "Data source=201.62.57.93,1434;Database=BD044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
                 sqlServerOptionsAction: builder =>
                 {
                     builder.EnableRetryOnFailure(
-                        maxRetryCount: 10, // Número máximo de tentativas
-                        maxRetryDelay: TimeSpan.FromSeconds(30), // Atraso máximo entre as tentativas
+                        maxRetryCount: 2, // Número máximo de tentativas
+                        maxRetryDelay: TimeSpan.FromSeconds(10), // Atraso máximo entre as tentativas
                         errorNumbersToAdd: null // Números de erro personalizados a serem adicionados
                     );
                 });
@@ -51,10 +51,10 @@ namespace VisitaFacil.Dados
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
+            //base.OnModelCreating(modelBuilder);
+            //modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
             modelBuilder.ApplyConfiguration(new DadosPessoaisConfiguration());
-            modelBuilder.Entity<RegistroVisita>().HasNoKey();
+            //modelBuilder.Entity<RegistroVisita>().HasNoKey();
             //modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
             //modelBuilder.ApplyConfiguration(new IdosoConfiguration());
             //modelBuilder.ApplyConfiguration(new ParenteProximoConfiguration());

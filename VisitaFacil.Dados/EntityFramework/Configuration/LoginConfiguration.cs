@@ -8,5 +8,6 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
 {
     internal class LoginConfiguration
     {
+
     }
 }
