@@ -8,7 +8,7 @@ using VisitaFacil.Dados.Repositorios;
 using VisitaFacil.Dominio.Entities;
 
 namespace VisitaFacil.Servico
-{
+{//esse dados pessoais serviço nao tem no codigo do rento
     public class DadosPessoaisServico 
     {
         private readonly DadosPessoaisRepositorio _dadosPessoaisRepositorio;

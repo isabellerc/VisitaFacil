@@ -13,11 +13,14 @@ namespace VisitaFacil.Dados
     public class Contexto : DbContext 
     
     {
+        public DbSet<DadosPessoais> DadosPessoais { get; set; }
+        public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
+
         //vou comentar:
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
         }
-       
+
 
         //public DbSet<Instituicao> Instituicao { get; set; }
         //public DbSet<Funcionario> Funcionario { get; set; }
@@ -27,9 +30,9 @@ namespace VisitaFacil.Dados
         //public DbSet<Login> Login { get; set; }
         //public DbSet<Endereco> Endereco { get; set; }
         //public DbSet<RegistroVisita> RegistroVisita { get; set; }
-        public DbSet<DadosPessoais> DadosPessoais { get; set; }
-        
-        public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
+
+
+
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

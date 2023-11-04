@@ -32,7 +32,11 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Login}/{id?}"); //home index
+
+
+// essa é a rota para acessar o relatorio dos usuarios cadastrados:
+//pattern: "{controller=DadosPessoais}/{action=Index}/{id?}");
 
 app.Run();
 

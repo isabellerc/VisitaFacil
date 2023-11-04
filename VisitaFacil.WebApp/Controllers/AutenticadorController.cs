@@ -5,10 +5,12 @@ namespace VisitaFacil.WebApp.Controllers
 {
     public class AutenticadorController : Controller
     {
+
+        //comentando , mas depois tenho que voltar aqui pra resolver o erro
         [HttpGet]
         public IActionResult Index()
         {
-            return View("Login");
+            return View(new UsuarioViewModel());
         }
 
         //public IActionResult Login() // nao sei se está certo
@@ -17,13 +19,18 @@ namespace VisitaFacil.WebApp.Controllers
         //}
 
         [HttpPost]
-        public async Task<IActionResult> Autenticar(UsuarioViewModel entidade)
+        public IActionResult Autenticar(UsuarioViewModel entidade)
         {
             if (entidade.Autenticado())
-                await Response.WriteAsync("Resultado Positivo");
+                return base.RedirectToAction("Index", "DadosPessoais");
             else
-                await Response.WriteAsync("Resultado Negativo");
-            return null;
+                return base.RedirectToAction("Erro");
+        }
+
+        [HttpGet]
+        public IActionResult Erro()
+        {
+            return View();
         }
     }
 }
