@@ -23,6 +23,8 @@ namespace VisitaFacil.WebApp.Controllers
         {
             if (entidade.Autenticado())
                 return base.RedirectToAction("Index", "DadosPessoais");
+            //if (entidade.Autenticado())
+            //    return base.RedirectToAction("Index", "Home");
             else
                 return base.RedirectToAction("Erro");
         }

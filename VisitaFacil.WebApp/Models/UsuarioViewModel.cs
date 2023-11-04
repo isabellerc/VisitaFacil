@@ -7,7 +7,7 @@
         public bool ManterConectado { get; set; }
         public bool Autenticado()
         {
-            return Usuario == "renato" && Senha == "123";
+            return (Usuario == "isabelle@gmail.com" && Senha == "123")||(Usuario == "vitorhugo@gmail.com" && Senha == "321") || (Usuario == "renatinho@gmail.com" && Senha == "medaponto");
         }
     }
 }

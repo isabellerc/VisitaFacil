@@ -25,6 +25,11 @@ namespace VisitaFacil.WebApp.Controllers
             return View();
         }
 
+        public IActionResult Entrar()
+        {
+            return View();
+        }
+
         //private readonly DadosPessoaisServico dadosPessoaisServico;
         //public DadosPessoaisServico _dadosPessoaisServico = new DadosPessoaisServico();
         //[HttpPost]
