@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using VisitaFacil.Dominio.Entities;
-using VisitaFacil.Servico;
+//using VisitaFacil.Servico;
 using VisitaFacil.WebApp.Models;
 
 namespace VisitaFacil.WebApp.Controllers
@@ -20,33 +20,21 @@ namespace VisitaFacil.WebApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult IdosoFormulario()
         {
             return View();
         }
 
-        public IActionResult Entrar()
+        public IActionResult VisitanteFormulario()
         {
             return View();
         }
 
-        //private readonly DadosPessoaisServico dadosPessoaisServico;
-        //public DadosPessoaisServico _dadosPessoaisServico = new DadosPessoaisServico();
-        //[HttpPost]
-
-        //public IActionResult SalvarDadosPessoais(VisitaFacil.Dominio.Entities.DadosPessoais dadosPessoais)
+        //public IActionResult Entrar()
         //{
-        //    _dadosPessoaisServico.SalvarDadosPessoais(dadosPessoais);
-        //    return Ok();
+        //    return View();
         //}
 
-
-        //comentei isso para testar:
-        //public string SalvarDadosPessoais(DadosPessoais dadosPessoais)
-        //{
-        //    _dadosPessoaisServico.SalvarDadosPessoais(dadosPessoais);
-        //    return "Ok";
-        //}
 
         public IActionResult Login() // nao sei se está certo 
         {

@@ -10,11 +10,13 @@ using VisitaFacil.Dominio.Entities;
 
 namespace VisitaFacil.Dados
 {
-    public class Contexto : DbContext 
-    
+    public class Contexto : DbContext
+
     {
         public DbSet<DadosPessoais> DadosPessoais { get; set; }
+        public DbSet<Idoso> Idoso { get; set; }
         public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
+        public DbSet<Visitante> Visitante { get; set; }
 
         //vou comentar:
         public Contexto(DbContextOptions<Contexto> options) : base(options)
@@ -24,9 +26,9 @@ namespace VisitaFacil.Dados
 
         //public DbSet<Instituicao> Instituicao { get; set; }
         //public DbSet<Funcionario> Funcionario { get; set; }
-        //public DbSet<Idoso> Idoso { get; set; }
+        //
         //public DbSet<ParenteProximo> Parente { get; set; } 
-        //public DbSet<Visitante> Visitante { get; set; }
+        //
         //public DbSet<Login> Login { get; set; }
         //public DbSet<Endereco> Endereco { get; set; }
         //public DbSet<RegistroVisita> RegistroVisita { get; set; }
@@ -54,14 +56,14 @@ namespace VisitaFacil.Dados
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
-            //modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
+
+          
             modelBuilder.ApplyConfiguration(new DadosPessoaisConfiguration());
+            modelBuilder.ApplyConfiguration(new IdosoConfiguration());
+            modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
             //modelBuilder.Entity<RegistroVisita>().HasNoKey();
             //modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
-            //modelBuilder.ApplyConfiguration(new IdosoConfiguration());
-            //modelBuilder.ApplyConfiguration(new ParenteProximoConfiguration());
-            //modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
+
             //modelBuilder.ApplyConfiguration(new LoginConfiguration());
             //modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
             //modelBuilder.ApplyConfiguration(new CidadeConfiguration());
@@ -70,4 +72,5 @@ namespace VisitaFacil.Dados
         }
     }
 }
+
 
