@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
 
