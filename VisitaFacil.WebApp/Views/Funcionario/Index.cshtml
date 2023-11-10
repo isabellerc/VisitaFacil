@@ -1,5 +1,5 @@
 ﻿@using VisitaFacil.Dominio.Entities;
-@model IEnumerable<Visitante>
+@model IEnumerable<Funcionario>
 
 <table class="table table-striped table-sm">
     <thead>
@@ -19,8 +19,8 @@
         {
             <tr>
                 <td>
-            @item.idVisitante
-            </td>
+                    @item.idFuncionario
+                </td>
                 <td>
                     @item.Nome
                 </td>
@@ -45,13 +45,12 @@
                 </td>
 
                 <td>
-            <a class="btn btn-danger btn-xs" asp-action="excluir" asp-controller="Visitante" asp-route-id="@item.idVisitante">
+                    <a class="btn btn-danger btn-xs" asp-action="excluir" asp-controller="Funcionario" asp-route-id="@item.idFuncionario">
 
-            <i class="glyphicon glyphicon-trash"></i>
-            </a>
-            </td>
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
-
