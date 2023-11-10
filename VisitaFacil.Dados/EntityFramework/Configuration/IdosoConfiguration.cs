@@ -19,45 +19,45 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
             builder
                 .Property(f => f.idIdoso)
                 .UseIdentityColumn()
-                .HasColumnName("idIdoso")
+                .HasColumnName("IDIDOSO")
                 .HasColumnType("int");
 
             // Configuração das colunas
             builder
                 .Property(f => f.Nome)
-                .HasColumnName("Nome")
+                .HasColumnName("NOME")
                 .HasColumnType("varchar(200)")
                 .IsRequired();
 
             builder
                 .Property(f => f.Cpf)
-                .HasColumnName("Cpf")
+                .HasColumnName("CPF")
                 .HasColumnType("char(11)")
                 .IsRequired();
 
             builder
                 .Property(f => f.dataNascimento)
-                .HasColumnName("DataNascimento")
+                .HasColumnName("DATANASCIMENTO")
                 .HasColumnType("date");
 
             builder
                 .Property(f => f.Endereco)
-                .HasColumnName("Endereco")
+                .HasColumnName("ENDERECO")
                 .HasColumnType("varchar(500)");
 
             builder
                 .Property(f => f.Telefone1)
-                .HasColumnName("Telefone1")
+                .HasColumnName("TELEFONE1")
                 .HasColumnType("varchar(11)");
 
             builder
                 .Property(f => f.Telefone2)
-                .HasColumnName("Telefone2")
+                .HasColumnName("TELEFONE2")
                 .HasColumnType("varchar(11)");
 
             builder
                 .Property(f => f.Email)
-                .HasColumnName("Email")
+                .HasColumnName("EMAIL")
                 .HasColumnType("varchar(150)");
 
             //builder.HasBaseType<DadosPessoais>();
