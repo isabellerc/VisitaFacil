@@ -49,5 +49,10 @@ namespace VisitaFacil.WebApp.Controllers
                 RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
             });
         }
+
+        public IActionResult Cadastros()
+        {
+            return View();
+        }
     }
 }
