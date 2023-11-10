@@ -3,16 +3,36 @@
 }
 
 
-<p>Use this page to detail your site's privacy policy.</p>
 
-<p>Teste teste teste teste</p>
+<p>Faça os cadastros abaixo:</p>
 
-<!-- Inclua o arquivo de estilo CSS -->
-<link rel="stylesheet" type="text/css" href="~/css/estilos.css" />
-
-<div class="text-center" style="color: white;">
-    <h1 class="display-4">Visita Fácil</h1>
-    <p>
-        Faça aqui os cadastros da Instituição
-    </p>
+<div class="button-container">
+    <button onclick="window.location.href='@Url.Action("IdosoFormulario", "Home")'">Cadastro Idoso</button>
+    <button onclick="window.location.href='@Url.Action("VisitanteFormulario", "Home")'">Cadastro Visitante</button>
 </div>
+
+
+<style>
+    /* Estilo dos botões */
+    .button-container button {
+        background-color: purple;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-bottom: 10px; /* Espaçamento entre os botões */
+        display: block; /* Faz com que os botões ocupem a largura total disponível */
+        text-align: left; /* Alinha o texto à esquerda dentro do botão */
+    }
+
+        /* Estilo de hover para realçar quando o mouse passa por cima */
+        .button-container button:hover {
+            background-color: #6b3a9e; /* Tom mais escuro de roxo para realce */
+        }
+
+
+
+</style>
+
+

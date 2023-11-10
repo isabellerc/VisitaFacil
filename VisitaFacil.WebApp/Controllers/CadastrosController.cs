@@ -9,8 +9,11 @@ namespace VisitaFacil.WebApp.Controllers
     {
         public IActionResult MostrarTela()
         {
-            return View(); // Retorna uma visualização sem modelo associado
+            return RedirectToAction("Cadastros", "Home");
+            
         }
+
+        
     }
 
 }
