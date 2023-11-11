@@ -21,60 +21,104 @@
 <body>
 
     <div class="body-container">
-
         <div class="container" id="container">
             <div>
                 <div class="form-container sign-up-container">
                     @*//aqui é o formulário de cadastro:*@
-
                     <form asp-action="Post" asp-controller="Idoso" method="post">
                         <h1>Cadastrar Novo Idoso</h1>
-                        <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
-                        <input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
-                        <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
-                        <input type="text" name="Endereco" placeholder="Endereço" asp-for="Endereco" />
-                        <input type="text" name="Telefone1" placeholder="Telefone 1" asp-for="Telefone1" />
-                        <input type="text" name="Telefone2" placeholder="Telefone 2" asp-for="Telefone2" />
-                        <input type="email" name="Email" placeholder="E-mail" asp-for="Email" />
+                        <div class="flex-container">
+                            <div class="flex-item">
+                                <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
+                            </div>
+                            <div class="flex-item">
+                                <input type="text" id="cpf" name="Cpf" placeholder="CPF" asp-for="Cpf" />
+                            </div>
+                            <div class="flex-item">
+                                <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
+                            </div>
+                            <div class="flex-item">
+                                <input type="text" name="Endereco" placeholder="Endereço" asp-for="Endereco" />
+                            </div>
+                            <div class="flex-item">
+                                <input type="text" name="Telefone1" placeholder="Telefone 1" asp-for="Telefone1" />
+                            </div>
+                            <div class="flex-item">
+                                <input type="text" name="Telefone2" placeholder="Telefone 2" asp-for="Telefone2" />
+                            </div>
+                            <div class="flex-item">
+                                <input type="email" name="Email" placeholder="E-mail" asp-for="Email" />
+                            </div>
+                        </div>
                         <button type="submit" id="btnCadastrar" class="btn-grad">Cadastrar</button>
                     </form>
                 </div>
             </div>
         </div>
-
     </div>
     <script type="text/javascript" src="index.js"></script>
     <script>
-        //const signUpBtn = document.getElementById('signUp');
-        //const signInBtn = document.getElementById('signIn');
-        const container = document.getElementById('container');
-
-        //botao de btnCadastrar
-        const btnCadastrar = document.getElementById('btnCadastrar');
-        btnCadastrar.addEventListener('click', () => {
-            alert('Usuário Cadastrado com Sucesso');
-            container.classList.add('left-panel-active');
-
-        });
-
-
-        signUpBtn.addEventListener('click', () => {
-            container.classList.add('right-panel-active');
-        });
-
-        signInBtn.addEventListener('click', () => {
-            container.classList.remove('right-panel-active');
-        });</script>
-
+        // Código do JavaScript aqui
+    </script>
     <script src="/js/site.js"></script>
-
-
 </body>
-
 </html>
+    @*<div class="body-container">
+        <div class="container" id="container">
+            <div>
+                <div class="form-container sign-up-container">
+                    @*//aqui é o formulário de cadastro:
+                    <form asp-action="Post" asp-controller="Idoso" method="post">
+                        <h1>Cadastrar Novo Idoso</h1>
+                        <div class="grid-container">
+                            <div>
+                                <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
+                            </div>
+                            <div>
+                                <input type="text" id="cpf" name="Cpf" placeholder="CPF" asp-for="Cpf" />
+                            </div>
+                            <div>
+                                <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
+                            </div>
+                            <div>
+                                <input type="text" name="Endereco" placeholder="Endereço" asp-for="Endereco" />
+                            </div>
+                            <div>
+                                <input type="text" name="Telefone1" placeholder="Telefone 1" asp-for="Telefone1" />
+                            </div>
+                            <div>
+                                <input type="text" name="Telefone2" placeholder="Telefone 2" asp-for="Telefone2" />
+                            </div>
+                            <div>
+                                <input type="email" name="Email" placeholder="E-mail" asp-for="Email" />
+                            </div>
+                        </div>
+                        <button type="submit" id="btnCadastrar" class="btn-grad">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+        // Código do JavaScript aqui
+    </script>
+    <script src="/js/site.js"></script>
+</body>
+</html>
+*@
+
 
 
 <style>
+
+    /* Seu estilo CSS aqui */
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 10px;
+        width: 100%;
+    }
     * {
         box-sizing: border-box;
         margin: 0;
@@ -134,18 +178,9 @@
             text-decoration: none;
         }
 
-    #signIn {
-        background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);
-        color: #6441A5;
-    }
 
-    #signUp {
-        background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);
-        color: #6441A5;
-    }
-
-    form {
-        background-color: #ffffff;
+    form {/*
+        background-color: #ffffff*/;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -171,14 +206,28 @@
         background: #4568DC; /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        width: 100%; /* Adicionado para ocupar a largura total da tela */
     }
+
     /*#container{
         padding: 0;
         margin: 0;
         width: 100%
+    }
+
+   /* .container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 100%; /* Alterado para 100% */
+       /* min-height: 85%;
+        max-width: none; /* Remova a restrição de largura máxima */
+       /* margin: 0 auto;Centralizar o conteúdo 
     }*/
 
-    .container {
+   /* .container {
         background-color: #ffffff;
         border-radius: 10px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
@@ -187,7 +236,7 @@
         width: 90%;
         max-width: 100%;
         min-height: 85%;
-    }
+    }*/
 
     .form-container {
         position: absolute;
@@ -234,7 +283,7 @@
         }
     }
 
-    .overlay-container {
+   /* .overlay-container {
         position: absolute;
         top: 0;
         left: 50%;
@@ -295,10 +344,26 @@
     .overlay-right {
         right: 0;
         transform: translateX(0);
+    }*/
+
+   /* .container.right-panel-active .overlay-right {
+        transform: translateX(20%);
+    }*/
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
     }
 
-    .container.right-panel-active .overlay-right {
-        transform: translateX(20%);
+    .flex-item {
+        flex: 0 0 48%; /* Ajuste a largura conforme necessário */
+        margin-bottom: 10px;
+    }
+
+    /* Ajustes específicos para os campos */
+    #cpf, [name="dataNascimento"], [name="Telefone1"], [name="Telefone2"], [name="Email"] {
+        width: calc(100% - 300px);
     }
 </style>
 

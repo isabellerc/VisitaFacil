@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace VisitaFacil.Dominio.Entities
 {
@@ -13,6 +16,7 @@ namespace VisitaFacil.Dominio.Entities
         public int idVisitante { get; set; }
 
         public DateTime dataVisita { get; set; }
+        
         public DateTime horaEntrada { get; set; }
         public DateTime horaSaida { get; set; }
 

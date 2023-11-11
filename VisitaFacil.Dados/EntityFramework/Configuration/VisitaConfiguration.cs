@@ -40,13 +40,13 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
             builder
                 .Property(f => f.horaEntrada)
                 .HasColumnName("HORAENTRADA")
-                .HasColumnType("time")
+                .HasColumnType("datetime")
                 .IsRequired();
 
             builder
                 .Property(f => f.horaSaida)
                 .HasColumnName("HORASAIDA")
-                .HasColumnType("time")
+                .HasColumnType("datetime")
                 .IsRequired();
 
             // Relacionamentos
