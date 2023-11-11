@@ -17,6 +17,7 @@ namespace VisitaFacil.Dados
         public DbSet<Idoso> Idoso { get; set; }
         public Contexto() : base() { } //acho que ta repetindo o que eu acabei de colocar lá em cima
         public DbSet<Visitante> Visitante { get; set; }
+        public DbSet<Visita> Visita { get; set; }
 
         //vou comentar:
         public Contexto(DbContextOptions<Contexto> options) : base(options)
@@ -31,7 +32,7 @@ namespace VisitaFacil.Dados
         //
         //public DbSet<Login> Login { get; set; }
         //public DbSet<Endereco> Endereco { get; set; }
-        //public DbSet<RegistroVisita> RegistroVisita { get; set; }
+        
 
 
 
@@ -61,6 +62,7 @@ namespace VisitaFacil.Dados
             modelBuilder.ApplyConfiguration(new DadosPessoaisConfiguration());
             modelBuilder.ApplyConfiguration(new IdosoConfiguration());
             modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
+            modelBuilder.ApplyConfiguration(new VisitaConfiguration());
             //modelBuilder.Entity<RegistroVisita>().HasNoKey();
             //modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
 

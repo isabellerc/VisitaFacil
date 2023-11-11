@@ -1,0 +1,46 @@
+﻿@using VisitaFacil.Dominio.Entities;
+@model IEnumerable<Visita>
+
+<table class="table table-striped table-sm">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ID Idoso</th>
+            <th>ID Visitante</th>
+            <th>Data da Visita</th>
+            <th>Hora de Entrada</th>
+            <th>Hora de Saída</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.idVisita
+                </td>
+                <td>
+                    @item.idIdoso
+                </td>
+                <td>
+                    @item.idVisitante
+                </td>
+                <td>
+                    @item.dataVisita.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.horaEntrada.ToString("HH:mm")
+                </td>
+                <td>
+                    @item.horaSaida.ToString("HH:mm")
+                </td>
+
+                <td>
+                    <a class="btn btn-danger btn-xs" asp-action="excluir" asp-controller="Visita" asp-route-id="@item.idVisita">
+                        <i class="glyphicon glyphicon-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

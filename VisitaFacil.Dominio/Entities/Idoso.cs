@@ -19,5 +19,6 @@ namespace VisitaFacil.Dominio.Entities
         public string Telefone2 { get; set; }
         public string Email { get; set; }
         public bool Ativo { get; set; }
+        public List<Visita> Visitas { get; set; } // Propriedade de navegação para as visitas associadas ao Idoso
     }
 }

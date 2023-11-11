@@ -30,6 +30,11 @@ namespace VisitaFacil.WebApp.Controllers
             return View();
         }
 
+        public IActionResult VisitaFormulario()
+        {
+            return View();
+        }
+
         //public IActionResult Entrar()
         //{
         //    return View();
