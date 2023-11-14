@@ -17,8 +17,8 @@ namespace VisitaFacil.Dominio.Entities
 
         public DateTime dataVisita { get; set; }
         
-        public DateTime horaEntrada { get; set; }
-        public DateTime horaSaida { get; set; }
+        public TimeSpan horaEntrada { get; set; }
+        public TimeSpan horaSaida { get; set; }
 
         public Idoso Idoso { get; set; }
         public Visitante Visitante { get; set; }

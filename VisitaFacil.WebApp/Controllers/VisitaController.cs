@@ -10,14 +10,21 @@ namespace VisitaFacil.WebApp.Controllers
      
             private Contexto db = new Contexto();
 
-            public IActionResult Inserir()
+        public IActionResult Index()
+        {
+            var resultado = db.Visita
+                .ToList();
+
+            return View(resultado);
+        }
+
+        public IActionResult Inserir()
             {
                 var ent = new Visita();
-
-              
-
                 return View(ent);
             }
+
+        
 
             [HttpPost]
             public IActionResult Post(Visita ent)
@@ -26,7 +33,7 @@ namespace VisitaFacil.WebApp.Controllers
                 db.Visita.Add(ent);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", "Visita");
+                return RedirectToAction("Index", "Visita"); // está redirecionando errado
             }
         
 
