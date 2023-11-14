@@ -33,11 +33,13 @@
                         <!-- Outros campos de visita... -->
                         <!-- Lista suspensa para selecionar o Idoso -->
                         <label for="idIdoso">Selecione o Idoso:</label>
-                        <select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>
+                        @*<select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>*@
+                        @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
 
                         <!-- Lista suspensa para selecionar o Visitante -->
                         <label for="idVisitante">Selecione o Visitante:</label>
-                        <select asp-for="idVisitante" asp-items="@ViewBag.Visitantes"></select>
+                        @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))
+
 
                         <!-- Campo para a data da visita -->
                         <label for="dataVisita">Data da Visita:</label>

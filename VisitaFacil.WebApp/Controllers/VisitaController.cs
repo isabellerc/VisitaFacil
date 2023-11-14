@@ -14,9 +14,7 @@ namespace VisitaFacil.WebApp.Controllers
             {
                 var ent = new Visita();
 
-                // Preencher listas suspensas com registros existentes no banco
-                ViewBag.Idosos = new SelectList(db.Idoso.ToList(), "idIdoso", "Nome");
-                ViewBag.Visitantes = new SelectList(db.Visitante.ToList(), "idVisitante", "Nome");
+              
 
                 return View(ent);
             }
