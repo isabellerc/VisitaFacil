@@ -4,16 +4,23 @@
 
 
 
-<p>Faça os cadastros abaixo:</p>
+<p>CADASTROS:</p>
 
 <div class="button-container">
     <button onclick="window.location.href='@Url.Action("IdosoFormulario", "Home")'">Cadastro Idoso</button>
     <button onclick="window.location.href='@Url.Action("VisitanteFormulario", "Home")'">Cadastro Visitante</button>
     <button onclick="window.location.href='@Url.Action("VisitaFormulario", "Home")'">Registro Visita</button>
-
-    <button onclick="window.location.href='@Url.Action("VisitaFormulario", "Home")'">Relatório de Visita</button>
+    
 </div>
 
+
+<p>RELATÓRIOS:</p>
+
+<div class="button-container">
+    <button onclick="window.location.href='@Url.Action("Index", "Idoso")'">Relatório de Idosos</button>
+    <button onclick="window.location.href='@Url.Action("Index", "Visitante")'">Relatório de Visitantes</button>
+    <button onclick="window.location.href='@Url.Action("Index", "Visita")'">Relatório de Visita</button>
+</div>
 
 <style>
     /* Estilo dos botões */
