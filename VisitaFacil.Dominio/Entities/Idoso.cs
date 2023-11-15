@@ -14,9 +14,7 @@ namespace VisitaFacil.Dominio.Entities
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime dataNascimento { get; set; }
-        public string Endereco { get; set; }
-        public string Telefone1 { get; set; }
-        public string Telefone2 { get; set; }
+        public string Telefone { get; set; }
         public string Email { get; set; }
         public bool Ativo { get; set; }
         public List<Visita> Visitas { get; set; } // Propriedade de navegação para as visitas associadas ao Idoso

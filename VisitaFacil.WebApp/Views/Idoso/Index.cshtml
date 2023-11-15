@@ -8,9 +8,7 @@
             <th>Nome</th>
             <th>CPF</th>
             <th>Data de Nascimento</th>
-            <th>Endereço</th>
-            <th>Telefone 1</th>
-            <th>Telefone 2</th>
+            <th>Telefone</th>
             <th>E-mail</th>
         </tr>
     </thead>
@@ -31,15 +29,11 @@
                     @item.dataNascimento.ToString("dd/MM/yyyy")
 
                 </td>
+               
                 <td>
-                    @item.Endereco
+                    @item.Telefone
                 </td>
-                <td>
-                    @item.Telefone1
-                </td>
-                <td>
-                    @item.Telefone2
-                </td>
+               
                 <td>
                     @item.Email
                 </td>

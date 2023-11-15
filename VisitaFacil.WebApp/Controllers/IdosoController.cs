@@ -31,7 +31,7 @@ namespace VisitaFacil.WebApp.Controllers
             {
                 db.Idoso.Add(ent);
                 db.SaveChanges();
-                return RedirectToAction("Idoso", "Index");
+                return RedirectToAction("IdosoFormulario", "Home");
             }
 
         //[HttpPost]

@@ -14,9 +14,23 @@ namespace VisitaFacil.Dominio.Entities
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public DateTime dataNascimento { get; set; }
-        public string Endereco { get; set; }
-        public string Telefone1 { get; set; }
-        public string Telefone2 { get; set; }
+        
+        [Display(Name = "CEP")]
+        public string CEP { get; set; }
+
+        [Display(Name = "Logradouro")]
+        public string Logradouro { get; set; }
+        
+        public string Numero { get; set; } //alterar no banco para int
+        public string Complemento { get; set; }
+        [Display(Name = "Bairro")]
+        public string Bairro { get; set; }
+        [Display(Name = "Cidade")]
+        public string Cidade { get; set; }
+        [Display(Name = "Estado")]
+        public string Estado { get; set; }
+
+        public string Telefone { get; set; }
         public string Email { get; set; }
         public bool Ativo { get; set; }
 

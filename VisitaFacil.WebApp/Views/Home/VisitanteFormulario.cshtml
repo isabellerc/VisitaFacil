@@ -2,6 +2,8 @@
 @model Visitante
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,9 +34,15 @@
                         <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
                         <input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
                         <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
-                        <input type="text" name="Endereco" placeholder="Endereço" asp-for="Endereco" />
-                        <input type="text" name="Telefone1" placeholder="Telefone 1" asp-for="Telefone1" />
-                        <input type="text" name="Telefone2" placeholder="Telefone 2" asp-for="Telefone2" />
+                        <input type="text" name="CEP" id="cep" placeholder="CEP" asp-for="CEP" />
+                        <button type="button" onclick="pesquisacep(document.getElementById('cep').value)">Buscar CEP</button>
+                        <input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
+                        <input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
+                        <input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />
+                        <input type="text" name="Bairro" id="bairro" placeholder="Bairro" asp-for="Bairro" />
+                        <input type="text" name="Cidade" id="cidade" placeholder="Cidade" asp-for="Cidade" />
+                        <input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
+                        <input type="text" name="Telefone" placeholder="Telefone " asp-for="Telefone" />
                         <input type="email" name="Email" placeholder="E-mail" asp-for="Email" />
                         <button type="submit" id="btnCadastrar" class="btn-grad">Cadastrar</button>
                     </form>
@@ -43,20 +51,18 @@
         </div>
 
     </div>
+
     <script type="text/javascript" src="index.js"></script>
     <script>
-        //const signUpBtn = document.getElementById('signUp');
-        //const signInBtn = document.getElementById('signIn');
         const container = document.getElementById('container');
-
-        //botao de btnCadastrar
         const btnCadastrar = document.getElementById('btnCadastrar');
+        const signUpBtn = document.getElementById('signUp'); // Adicione esta linha
+        const signInBtn = document.getElementById('signIn'); // Adicione esta linha
+
         btnCadastrar.addEventListener('click', () => {
             alert('Usuário Cadastrado com Sucesso');
             container.classList.add('left-panel-active');
-
         });
-
 
         signUpBtn.addEventListener('click', () => {
             container.classList.add('right-panel-active');
@@ -64,15 +70,68 @@
 
         signInBtn.addEventListener('click', () => {
             container.classList.remove('right-panel-active');
-        });</script>
+        });
+    </script>
+
+    <script>
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                // Atualiza os campos com os valores.
+                document.getElementById('rua').value = conteudo.logradouro;
+                document.getElementById('bairro').value = conteudo.bairro;
+                document.getElementById('cidade').value = conteudo.localidade;
+                document.getElementById('uf').value = conteudo.uf;
+            } else {
+                // CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+                    // Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+                } else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        };
+    </script>
 
     <script src="/js/site.js"></script>
 
-
 </body>
 
-</html>
+</html> 
 
+@*qualquer coisa descomentar daqui pra baixo:*@
 
 <style>
     * {
@@ -158,8 +217,8 @@
     input {
         background-color: #eee;
         border: none;
-        padding: 10px 12px;
-        margin: 8px 0;
+        padding: 8px 10px;
+        margin: 5px 0;
         width: 100%;
     }
 
@@ -169,14 +228,14 @@
         justify-content: center;
         align-items: center;
         background: #4568DC; /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
-    /*#container{
+        background: -webkit-linear-gradient(to right, #B06AB3, #4568DC)*/; /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #B06AB3, #4568DC);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*}
+    #container{
             padding: 0;
             margin: 0;
             width: 100%
-        }*/
+        }
 
     .container {
         background-color: #ffffff;
@@ -193,6 +252,7 @@
         position: absolute;
         top: 0;
         height: 100%;
+        /*width: 100%; verificar se esta certo add isso*/
         transition: all 0.6s ease-in-out;
     }
 
@@ -202,7 +262,7 @@
             z-index: 2;
         }*/
 
-    /*  .sign-up-container {
+     /* .sign-up-container {
             left: 0;
             width: 50%;
             opacity: 0;
@@ -234,7 +294,7 @@
         }
     }
 
-    .overlay-container {
+   /* .overlay-container {
         position: absolute;
         top: 0;
         left: 50%;
@@ -299,7 +359,7 @@
 
     .container.right-panel-active .overlay-right {
         transform: translateX(20%);
-    }
+    }*/
 </style>
 
 

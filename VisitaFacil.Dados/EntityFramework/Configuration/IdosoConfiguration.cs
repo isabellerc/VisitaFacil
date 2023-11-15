@@ -40,19 +40,10 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
                 .HasColumnName("DATANASCIMENTO")
                 .HasColumnType("date");
 
-            builder
-                .Property(f => f.Endereco)
-                .HasColumnName("ENDERECO")
-                .HasColumnType("varchar(500)");
 
             builder
-                .Property(f => f.Telefone1)
-                .HasColumnName("TELEFONE1")
-                .HasColumnType("varchar(11)");
-
-            builder
-                .Property(f => f.Telefone2)
-                .HasColumnName("TELEFONE2")
+                .Property(f => f.Telefone)
+                .HasColumnName("TELEFONE")
                 .HasColumnType("varchar(11)");
 
             builder

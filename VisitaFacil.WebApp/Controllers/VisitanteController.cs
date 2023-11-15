@@ -33,5 +33,29 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("VisitanteFormulario", "Home");
 
         }
+
+        //[HttpPost]
+        //public IActionResult Post(Visitante visitante)
+        //{
+        //    // Validar o modelo, processar o CEP, e assim por diante...
+
+        //    // Mapear valores do modelo para a entidade do banco de dados
+        //    var entidadeVisitante = new Visitante
+        //    {
+        //        CEP = visitante.CEP,
+        //        Logradouro = visitante.Logradouro,
+        //        Bairro = visitante.Bairro,
+        //        Cidade = visitante.Cidade,
+        //        Estado = visitante.Estado,
+        //        // Mapear outras propriedades...
+        //    };
+
+        //    // Adicionar à context e salvar no banco de dados
+        //    db.Visitante.Add(entidadeVisitante);
+        //    _contexto.SaveChanges();
+
+        //    return RedirectToAction("VisitanteFormulario", "Home");
+        //}
+
     }
 }

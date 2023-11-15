@@ -43,17 +43,44 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
                 .HasColumnType("date");
 
             builder
-                .Property(f => f.Endereco)
-                .HasColumnName("Endereco")
-                .HasColumnType("nvarchar(255)");
+                .Property(f => f.CEP)
+                .HasColumnName("CEP")
+                .HasColumnType("char(9)");
 
             builder
-                .Property(f => f.Telefone1)
-                .HasColumnName("Telefone1")
-                .HasColumnType("nvarchar(20)");
+                .Property(f => f.Logradouro)
+                .HasColumnName("LOGRADOURO")
+                .HasColumnType("varchar(150)");
 
             builder
-                .Property(f => f.Telefone2)
+                .Property(f => f.Numero)
+                .HasColumnName("Numero")
+                .HasColumnType("char(10)");
+
+            builder
+                .Property(f => f.Complemento)
+                .HasColumnName("Complemento")
+                .HasColumnType("varchar(50)");
+
+            builder
+                .Property(f => f.Bairro)
+                .HasColumnName("Bairro")
+                .HasColumnType("varchar(50)");
+
+            builder
+                .Property(f => f.Cidade)
+                .HasColumnName("Cidade")
+                .HasColumnType("varchar(50)");
+
+            builder
+                .Property(f => f.Estado)
+                .HasColumnName("Estado")
+                .HasColumnType("char(2)");
+
+
+
+            builder
+                .Property(f => f.Telefone)
                 .HasColumnName("Telefone2")
                 .HasColumnType("nvarchar(20)");
 

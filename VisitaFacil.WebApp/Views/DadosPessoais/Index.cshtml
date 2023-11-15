@@ -8,9 +8,14 @@
             <th>Nome</th>
             <th>CPF</th>
             <th>Data de Nascimento</th>
-            <th>Endereço</th>
-            <th>Telefone 1</th>
-            <th>Telefone 2</th>
+            <th>CEP</th>
+            <th>Rua</th>
+            <th>Numero</th>
+            <th>Complemento</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Telefone</th>
             <th>E-mail</th>
         </tr>
     </thead>
@@ -32,13 +37,29 @@
                     
                 </td>
                 <td>
-                    @item.Endereco
+                    @item.CEP
                 </td>
                 <td>
-                    @item.Telefone1
+                    @item.Logradouro
                 </td>
                 <td>
-                    @item.Telefone2
+                    @item.Numero
+                </td>
+                <td>
+                    @item.Complemento
+                </td>
+                <td>
+                    @item.Bairro
+                </td>
+                <td>
+                    @item.Cidade
+                </td>
+                <td>
+                    @item.Estado
+                </td>
+
+                <td>
+                    @item.Telefone
                 </td>
                 <td>
                     @item.Email
