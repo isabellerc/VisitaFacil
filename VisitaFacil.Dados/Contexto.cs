@@ -19,24 +19,12 @@ namespace VisitaFacil.Dados
         public DbSet<Visitante> Visitante { get; set; }
         public DbSet<Visita> Visita { get; set; }
 
+        //public DbSet<Usuario> Usuario { get; set; } 
+
         //vou comentar:
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
-        }
-
-
-        //public DbSet<Instituicao> Instituicao { get; set; }
-        //public DbSet<Funcionario> Funcionario { get; set; }
-        //
-        //public DbSet<ParenteProximo> Parente { get; set; } 
-        //
-        //public DbSet<Login> Login { get; set; }
-        //public DbSet<Endereco> Endereco { get; set; }
-        
-
-
-
-
+        }  
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -76,6 +64,7 @@ namespace VisitaFacil.Dados
             modelBuilder.ApplyConfiguration(new IdosoConfiguration());
             modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
             modelBuilder.ApplyConfiguration(new VisitaConfiguration());
+            //modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
             //modelBuilder.Entity<RegistroVisita>().HasNoKey();
             //modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
 

@@ -81,7 +81,7 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
 
             builder
                 .Property(f => f.Telefone)
-                .HasColumnName("Telefone2")
+                .HasColumnName("Telefone")
                 .HasColumnType("nvarchar(20)");
 
             builder

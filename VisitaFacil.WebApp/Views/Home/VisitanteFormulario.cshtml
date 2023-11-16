@@ -34,8 +34,8 @@
                         <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
                         <input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
                         <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
-                        <input type="text" name="CEP" id="cep" placeholder="CEP" asp-for="CEP" />
-                        <button type="button" onclick="pesquisacep(document.getElementById('cep').value)">Buscar CEP</button>
+                        <input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
+                        
                         <input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
                         <input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
                         <input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />

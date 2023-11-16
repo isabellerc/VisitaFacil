@@ -32,15 +32,17 @@
                             <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
                             <input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
                             <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
-                            <input type="text" name="CEP" id="cep" placeholder="CEP" asp-for="CEP" />
-                            <button type="button" onclick="pesquisacep(document.getElementById('cep').value)">Buscar CEP</button>
+                            <input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
+                            
                             <input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
                         <input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
+                        <input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />
                             <input type="text" name="Bairro" id="bairro" placeholder="Bairro" asp-for="Bairro" />
                             <input type="text" name="Cidade" id="cidade" placeholder="Cidade" asp-for="Cidade" />
                             <input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
                             <input type="text" name="Telefone" placeholder="Telefone " asp-for="Telefone" />
                             <input type="email" name="Email" placeholder="E-mail" asp-for="Email" />
+                            <input type="password" name="Senha" placeholder="Senha" asp-for="Senha" />
                             <button type="submit" id="btnCadastrar" class="btn-grad">Cadastrar</button>
                         </form>
 
@@ -49,13 +51,16 @@
 
                 </div>
                 <div class="form-container sign-in-container">
-                    <form asp-action="Login" asp-controller="DadosPessoais" method="post">
+                    <form asp-action="Autenticar" asp-controller="Autenticador" method="post">
                         <h1>Login</h1>
                         <input asp-for="Email" type="email" placeholder="E-mail" />
-                        <input asp-for="Cpf" type="password" placeholder="Senha" />
+                        <input asp-for="Senha" type="password" placeholder="Senha" />
                         <a href="#">Esqueceu a senha?</a>
                         <button type="submit" class="btn-grad">Entrar</button>
                     </form>
+                   
+                   
+
                 </div>
             </div>
 
@@ -242,8 +247,8 @@ form {
 input {
     background-color: #eee;
     border: none;
-    padding: 10px 12px;
-    margin: 8px 0;
+    padding: 5px 8px;
+    margin: 3px 0;
     width: 100%;
 }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
 using VisitaFacil.WebApp.Models;
@@ -34,18 +35,18 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("Login","Home");
             
         }
-        [HttpPost]
-        public IActionResult Login(DadosPessoais ent)
-        {
-            var criarUsuarioLogin = new UsuarioViewModel();
-            criarUsuarioLogin.Usuario = ent.Email;
-            criarUsuarioLogin.Senha = ent.Cpf;
-            if (criarUsuarioLogin.Autenticado())
-            {
-                return RedirectToAction("Index","DadosPessoais");
-            }
-            return RedirectToAction("Login","Home");
-        }
+        //[HttpPost]
+        //public IActionResult Login(DadosPessoais ent)
+        //{
+        //    var criarUsuarioLogin = new UsuarioViewModel();
+        //    criarUsuarioLogin.Usuario = ent.Email;
+        //    criarUsuarioLogin.Senha = ent.Cpf;
+        //    if (criarUsuarioLogin.Autenticado())
+        //    {
+        //        return RedirectToAction("Index", "DadosPessoais");
+        //    }
+        //    return RedirectToAction("Login", "Home");
+        //}
 
         public IActionResult Excluir(int ID)
         {
@@ -58,6 +59,18 @@ namespace VisitaFacil.WebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+       
+
+            [HttpGet]
+            public IActionResult Login()
+            {
+                return View();
+            }
+
+            
+        
+
     }
 
 }
