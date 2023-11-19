@@ -23,16 +23,70 @@ namespace VisitaFacil.WebApp.Controllers
                 return View(ent);
             }
 
+        public IActionResult Editar(int id)
+        {
+            // Encontrar o Idoso que você deseja editar no banco de dados
+            var ent = db.Idoso.Find(id);
 
-
-
-            [HttpPost]
-            public IActionResult Post(Idoso ent)
+            if (ent == null)
             {
-                db.Idoso.Add(ent);
-                db.SaveChanges();
-                return RedirectToAction("IdosoFormulario", "Home");
+                return NotFound(); // Retorna uma resposta 404 se o Idoso não for encontrado
             }
+
+            return View(ent);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Idoso ent)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Entry(ent).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["Mensagem"] = "Alterações salvas com sucesso.";
+                    return RedirectToAction("IdosoFormulario", "Home");
+                }
+                catch (Exception ex)
+                {
+                    TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
+                }
+            }
+
+            return View(ent);
+        }
+
+
+        [HttpPost]
+        public IActionResult Post(Idoso ent)
+        {
+            db.Idoso.Add(ent);
+            db.SaveChanges();
+            return RedirectToAction("IdosoFormulario", "Home");
+        }
+
+
+        //[HttpPost]
+        //public IActionResult Post(Idoso ent)
+        //{
+        //    try
+        //    {
+        //        db.Idoso.Add(ent);
+        //        db.SaveChanges();
+        //        return RedirectToAction("IdosoFormulario", "Home");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Aqui você pode logar a exceção se desejar
+        //        // Exemplo: logger.LogError($"Erro ao processar o post: {ex.Message}");
+
+        //        // Retorne uma mensagem de erro para a tela
+        //        ViewBag.ErrorMessage = "Ocorreu um erro ao processar a solicitação. Por favor, tente novamente.";
+        //        return View("Error"); // Supondo que você tenha uma view chamada "Error"
+        //    }
+        //}
+
 
         //[HttpPost]
         //public IActionResult Login(Idoso ent)
@@ -60,7 +114,7 @@ namespace VisitaFacil.WebApp.Controllers
         //}
     }
 
-    }
+}
 
 
 
