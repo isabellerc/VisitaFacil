@@ -25,12 +25,11 @@ namespace VisitaFacil.WebApp.Controllers
 
         public IActionResult Editar(int id)
         {
-            // Encontrar o Idoso que você deseja editar no banco de dados
             var ent = db.Idoso.Find(id);
 
             if (ent == null)
             {
-                return NotFound(); // Retorna uma resposta 404 se o Idoso não for encontrado
+                return NotFound();
             }
 
             return View(ent);

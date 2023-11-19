@@ -22,7 +22,38 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
+        public IActionResult Editar(int id)
+        {
+            var ent = db.Visitante.Find(id);
 
+            if (ent == null)
+            {
+                return NotFound();
+            }
+
+            return View(ent);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Visitante ent)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Entry(ent).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["Mensagem"] = "Alterações salvas com sucesso.";
+                    return RedirectToAction("VisitanteFormulario", "Home");
+                }
+                catch (Exception ex)
+                {
+                    TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
+                }
+            }
+
+            return View(ent);
+        }
 
 
         [HttpPost]

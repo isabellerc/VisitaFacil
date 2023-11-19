@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
 using VisitaFacil.WebApp.Models;
@@ -24,7 +25,38 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
-      
+        public IActionResult Editar(int id)
+        {
+            var ent = db.DadosPessoais.Find(id);
+
+            if (ent == null)
+            {
+                return NotFound();
+            }
+
+            return View(ent);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(DadosPessoais ent)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    db.Entry(ent).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["Mensagem"] = "Alterações salvas com sucesso.";
+                    return RedirectToAction("Login", "Home");
+                }
+                catch (Exception ex)
+                {
+                    TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
+                }
+            }
+
+            return View(ent);
+        }
 
 
         [HttpPost]
