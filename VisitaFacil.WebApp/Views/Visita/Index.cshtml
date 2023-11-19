@@ -36,8 +36,12 @@
                 </td>
 
                 <td>
+                    <a class="btn btn-info btn-xs" asp-action="Editar" asp-controller="Visita" asp-route-id="@item.idVisita">
+                        <i class="glyphicon glyphicon-edit"></i> Editar
+                    </a>
+
                     <a class="btn btn-danger btn-xs" asp-action="excluir" asp-controller="Visita" asp-route-id="@item.idVisita">
-                        <i class="glyphicon glyphicon-trash"></i>
+                        <i class="glyphicon glyphicon-trash"></i> Excluir
                     </a>
                 </td>
             </tr>

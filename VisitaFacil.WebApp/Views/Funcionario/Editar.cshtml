@@ -1,0 +1,353 @@
+﻿@model VisitaFacil.Dominio.Entities.Idoso
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags, links, etc. -->
+
+    <title>Editar Idoso</title>
+</head>
+<body>
+
+    <div class="body-container">
+        <div class="container" id="container">
+            <div>
+                <div class="form-container sign-up-container">
+                    <!-- Formulário de Edição -->
+                    <form asp-action="Editar" asp-controller="Idoso" method="post">
+                        <h1>Editar Idoso</h1>
+                        <p></p>
+                        <div class="flex-container">
+                            <div class="flex-item">
+                                <label for="Nome">Nome Completo</label>
+                                <input type="text" id="Nome" name="Nome" asp-for="Nome" value="@Model.Nome" />
+                            </div>
+                            <div class="flex-item">
+                                <label for="cpf">CPF</label>
+                                <input type="text" id="cpf" name="Cpf" asp-for="Cpf" value="@Model.Cpf" />
+                            </div>
+                            <div class="flex-item">
+                                <label for="dataNascimento">Data de Nascimento</label>
+                                <input type="date" id="dataNascimento" name="dataNascimento" asp-for="dataNascimento" value="@Model.dataNascimento.ToString("yyyy-MM-dd")" />
+                            </div>
+                            <div class="flex-item">
+                                <label for="Telefone">Telefone</label>
+                                <input type="string" id="telefone" name="Telefone" asp-for="Telefone" value="@Model.Telefone" />
+                            </div>
+                            <div class="flex-item">
+                                <label for="Email">E-mail</label>
+                                <input type="email" id="Email" name="Email" asp-for="Email" value="@Model.Email" />
+                            </div>
+                        </div>
+                        <input type="hidden" asp-for="idIdoso" />
+                        <button type="submit" id="btnEditar" class="btn-grad">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="index.js"></script>
+    <script>
+        // Código do JavaScript aqui
+    </script>
+    <script src="/js/site.js"></script>
+    <script>
+        @*//botao de btnCadastrar*@
+                    const btnCadastrar = document.getElementById('btnCadastrar');
+        btnCadastrar.addEventListener('click', () => {
+            alert('Idoso Cadastrado com Sucesso');
+            container.classList.add('left-panel-active');
+
+        });
+    </script>
+    <script>
+        document.getElementById('cpf').addEventListener('input', function (event) {
+            let inputValue = event.target.value.replace(/\D/g, '');
+            if (inputValue.length > 11) {
+                inputValue = inputValue.substring(0, 11);
+            }
+            let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            event.target.value = formattedValue;
+        });
+    </script>
+    <script>
+        document.getElementById('telefone').addEventListener('input', function (event) {
+            let inputValue = event.target.value.replace(/\D/g, '');
+            if (inputValue.length > 11) {
+                inputValue = inputValue.substring(0, 11);
+            }
+            let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
+            event.target.value = formattedValue;
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+<style>
+
+    /* Seu estilo CSS aqui */
+    /*.grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-column-gap: 10px;
+            width: 100%;*/
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Libre Franklin', sans-serif;
+    }
+
+    h1 {
+        font-weight: bold;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        margin: 20px 0 30px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    a {
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+
+
+    .btn-grad {
+        background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%)
+    }
+
+    .btn-grad {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+        .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+    form {
+        background-color: yellow;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 200px;
+        height: 100%;
+        text-align: center;
+    }
+
+    input {
+        background-color: lightgray;
+        border: 1px solid #ccc; /* Largura 1 pixel, estilo sólido, cor cinza */
+        border-style: dashed; /* Borda tracejada */
+        border-radius: 5px; /* Cantos arredondados com raio de 5 pixels */
+        padding: 10px 12px;
+        margin: 8px 0;
+        width: 100%;
+    }
+
+    .body-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /*background: linear-gradient(to right, #6441A5, #2a0845);/* fallback for old browsers */
+        background: linear-gradient(to right, #black, black); /* fallback for old browsers */
+        /*background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Chrome 10-25, Safari 5.1-6 */
+        /* background: linear-gradient(to right, #B06AB3, #4568DC);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        width: 100%; /* Adicionado para ocupar a largura total da tela */
+    }
+
+    #container {
+        padding: 0;
+        margin: 0;
+        width: 100%
+    }
+
+    .container {
+        background-color: red;
+        border-radius: 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        min-height: 100%;
+        max-width: none;
+        margin: 0 auto;
+    }
+
+    .container {
+        background: black; /*fallback for old browsers */
+        */ background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        border-radius: 2px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 100%;
+        min-height: 100%;
+    }
+
+    .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+
+    /*  .sign-in-container {
+            left: 0;
+            width: 50%;
+            z-index: 2;
+        }*/
+
+    .sign-up-container {
+        left: 0;
+        width: 100%;
+        /*   opacity: 0;*/
+        z-index: 1;
+    }
+
+    /* .container.right-panel-active .sign-in-container {
+            transform: translateX(100%);
+        }
+
+        .container.right-panel-active .sign-up-container {
+            transform: translateX(100%);
+            opacity: 1;
+            z-index: 5;
+            animation: show 0.6s;
+        }*/
+
+    @@keyframes show {
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+    /* .overlay-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out;
+            z-index: 100;
+        }
+
+        .container.right-panel-active .overlay-container {
+            transform: translateX(-100%);
+        }
+
+        .overlay {
+            background: #6441A5;
+            background: -webkit-linear-gradient(to right, #6441A5, #2a0845);
+            background: linear-gradient(to right, #6441A5, #2a0845);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            color: #ffffff;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .container.right-panel-active .overlay {
+            transform: translateX(50%);
+        }
+
+        .overlay-panel {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .overlay-left {
+            transform: translateX(-20%);
+        }
+
+        .container.right-panel-active .overlay-left {
+            transform: translateX(0);
+        }
+
+        .overlay-right {
+            right: 0;
+            transform: translateX(0);
+        }*/
+
+    /* .container.right-panel-active .overlay-right {
+            transform: translateX(20%);
+        }*/
+
+    .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .flex-item {
+        flex: 0 0 48%; /* Ajuste a largura conforme necessário */
+        margin-bottom: 10px;
+    }
+
+    /*Ajustes específicos para os campos: */
+    /*#cpf, [name="dataNascimento"], [name="Telefone"], [name="Email"] {
+            width: calc(100% - 300px);
+        }*/
+</style>
