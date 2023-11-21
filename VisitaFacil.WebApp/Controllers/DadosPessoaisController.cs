@@ -24,8 +24,6 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
-      
-
 
         [HttpPost]
         public IActionResult Post(DadosPessoais ent)
@@ -35,18 +33,29 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("Login","Home");
             
         }
-        //[HttpPost]
-        //public IActionResult Login(DadosPessoais ent)
-        //{
-        //    var criarUsuarioLogin = new UsuarioViewModel();
-        //    criarUsuarioLogin.Usuario = ent.Email;
-        //    criarUsuarioLogin.Senha = ent.Cpf;
-        //    if (criarUsuarioLogin.Autenticado())
-        //    {
-        //        return RedirectToAction("Index", "DadosPessoais");
-        //    }
-        //    return RedirectToAction("Login", "Home");
-        //}
+      
+        public IActionResult Editar(int id)
+        {
+            DadosPessoais entidade = db.DadosPessoais.Find(id);
+            if (entidade == null)
+            {
+                return NotFound();
+            }
+            return View(entidade);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(DadosPessoais ent)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(ent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(ent);
+        }
+
 
         public IActionResult Excluir(int ID)
         {
