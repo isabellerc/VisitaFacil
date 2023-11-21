@@ -50,7 +50,7 @@ app.UseAuthentication(); // Adicione isso para configurar a autenticação
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Login}/{id?}"); //home index
+    pattern: "{controller=Home}/{action=Index}/{id?}"); //home index
 
 
 // essa é a rota para acessar o relatorio dos usuarios cadastrados:

@@ -1,24 +1,11 @@
-﻿@using VisitaFacil.Dominio.Entities
-@model Visitante
-
-
-
+﻿@model VisitaFacil.Dominio.Entities.Visitante
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags, links, etc. -->
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
-    <title>Cadastro de Visitante </title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
-
+    <title>Editar Visitante</title>
 </head>
 <body>
 
@@ -161,7 +148,7 @@
 
 </body>
 
-</html> 
+</html>
 
 @*qualquer coisa descomentar daqui pra baixo:*@
 
@@ -261,56 +248,57 @@
         align-items: center;
         background: #4568DC; /* fallback for old browsers */
         background: -webkit-linear-gradient(to right, #B06AB3, #4568DC)*/; /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to right, #B06AB3, #4568DC);*/ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    /*}
-    #container{
-            padding: 0;
-            margin: 0;
-            width: 100%
+        background: linear-gradient(to right, #B06AB3, #4568DC);
+        */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        /*}
+        #container{
+                padding: 0;
+                margin: 0;
+                width: 100%
+            }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+            position: relative;
+            overflow: hidden;
+            width: 90%;
+            max-width: 100%;
+            min-height: 85%;
         }
 
-    .container {
-        background-color: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
-        position: relative;
-        overflow: hidden;
-        width: 90%;
-        max-width: 100%;
-        min-height: 85%;
-    }
-
-    .form-container {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        /*width: 100%; verificar se esta certo add isso*/
+        .form-container {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            /*width: 100%; verificar se esta certo add isso*/
         transition: all 0.6s ease-in-out;
     }
 
     /*  .sign-in-container {
-            left: 0;
-            width: 50%;
-            z-index: 2;
-        }*/
+                left: 0;
+                width: 50%;
+                z-index: 2;
+            }*/
 
-     /* .sign-up-container {
-            left: 0;
-            width: 50%;
-            opacity: 0;
-            z-index: 1;
-        }*/
+    /* .sign-up-container {
+                left: 0;
+                width: 50%;
+                opacity: 0;
+                z-index: 1;
+            }*/
 
     /* .container.right-panel-active .sign-in-container {
-            transform: translateX(100%);
-        }
+                transform: translateX(100%);
+            }
 
-        .container.right-panel-active .sign-up-container {
-            transform: translateX(100%);
-            opacity: 1;
-            z-index: 5;
-            animation: show 0.6s;
-        }*/
+            .container.right-panel-active .sign-up-container {
+                transform: translateX(100%);
+                opacity: 1;
+                z-index: 5;
+                animation: show 0.6s;
+            }*/
 
     @@keyframes show {
         0%,
@@ -326,73 +314,70 @@
         }
     }
 
-   /* .overlay-container {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 50%;
-        height: 100%;
-        overflow: hidden;
-        transition: transform 0.6s ease-in-out;
-        z-index: 100;
-    }
+    /* .overlay-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            transition: transform 0.6s ease-in-out;
+            z-index: 100;
+        }
 
-    .container.right-panel-active .overlay-container {
-        transform: translateX(-100%);
-    }
+        .container.right-panel-active .overlay-container {
+            transform: translateX(-100%);
+        }
 
-    .overlay {
-        background: #6441A5;
-        background: -webkit-linear-gradient(to right, #6441A5, #2a0845);
-        background: linear-gradient(to right, #6441A5, #2a0845);
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: 0 0;
-        color: #ffffff;
-        position: relative;
-        left: -100%;
-        height: 100%;
-        width: 200%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
+        .overlay {
+            background: #6441A5;
+            background: -webkit-linear-gradient(to right, #6441A5, #2a0845);
+            background: linear-gradient(to right, #6441A5, #2a0845);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+            color: #ffffff;
+            position: relative;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
 
-    .container.right-panel-active .overlay {
-        transform: translateX(50%);
-    }
+        .container.right-panel-active .overlay {
+            transform: translateX(50%);
+        }
 
-    .overlay-panel {
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        text-align: center;
-        top: 0;
-        height: 100%;
-        width: 50%;
-        transform: translateX(0);
-        transition: transform 0.6s ease-in-out;
-    }
+        .overlay-panel {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            text-align: center;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            transform: translateX(0);
+            transition: transform 0.6s ease-in-out;
+        }
 
-    .overlay-left {
-        transform: translateX(-20%);
-    }
+        .overlay-left {
+            transform: translateX(-20%);
+        }
 
-    .container.right-panel-active .overlay-left {
-        transform: translateX(0);
-    }
+        .container.right-panel-active .overlay-left {
+            transform: translateX(0);
+        }
 
-    .overlay-right {
-        right: 0;
-        transform: translateX(0);
-    }
+        .overlay-right {
+            right: 0;
+            transform: translateX(0);
+        }
 
-    .container.right-panel-active .overlay-right {
-        transform: translateX(20%);
-    }*/
+        .container.right-panel-active .overlay-right {
+            transform: translateX(20%);
+        }*/
 </style>
-
-
-
