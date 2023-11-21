@@ -23,41 +23,53 @@ namespace VisitaFacil.WebApp.Controllers
                 return View(ent);
             }
 
-        public IActionResult Editar(int id)
-        {
-            var ent = db.Idoso.Find(id);
+		public IActionResult Editar(int id)
+		{
+			Idoso entidade = db.Idoso.Find(id);
+			if (entidade == null)
+			{
+				return NotFound();
+			}
+			return View(entidade);
+		}
 
-            if (ent == null)
-            {
-                return NotFound();
-            }
-
-            return View(ent);
-        }
-
-        [HttpPost]
-        public IActionResult Editar(Idoso ent)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    db.Entry(ent).State = EntityState.Modified;
-                    db.SaveChanges();
-                    TempData["Mensagem"] = "Alterações salvas com sucesso.";
-                    return RedirectToAction("IdosoFormulario", "Home");
-                }
-                catch (Exception ex)
-                {
-                    TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
-                }
-            }
-
-            return View(ent);
-        }
+		[HttpPost]
+		public IActionResult Editar(Idoso ent)
+		{
+			if (ModelState.IsValid)
+			{
+				db.Entry(ent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+				db.SaveChanges();
+				return RedirectToAction("Index");
+			}
+			return View(ent);
+		}
 
 
-        [HttpPost]
+
+		//[HttpPost]
+		//public IActionResult Editar(Idoso ent)
+		//{
+		//    if (ModelState.IsValid)
+		//    {
+		//        try
+		//        {
+		//            db.Entry(ent).State = EntityState.Modified;
+		//            db.SaveChanges();
+		//            TempData["Mensagem"] = "Alterações salvas com sucesso.";
+		//            return RedirectToAction("IdosoFormulario", "Home");
+		//        }
+		//        catch (Exception ex)
+		//        {
+		//            TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
+		//        }
+		//    }
+
+		//    return View(ent);
+		//}
+
+
+		[HttpPost]
         public IActionResult Post(Idoso ent)
         {
             db.Idoso.Add(ent);

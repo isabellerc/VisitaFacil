@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
 using VisitaFacil.WebApp.Models;
@@ -25,39 +24,6 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
-        public IActionResult Editar(int id)
-        {
-            var ent = db.DadosPessoais.Find(id);
-
-            if (ent == null)
-            {
-                return NotFound();
-            }
-
-            return View(ent);
-        }
-
-        [HttpPost]
-        public IActionResult Editar(DadosPessoais ent)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    db.Entry(ent).State = EntityState.Modified;
-                    db.SaveChanges();
-                    TempData["Mensagem"] = "Alterações salvas com sucesso.";
-                    return RedirectToAction("Login", "Home");
-                }
-                catch (Exception ex)
-                {
-                    TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
-                }
-            }
-
-            return View(ent);
-        }
-
 
         [HttpPost]
         public IActionResult Post(DadosPessoais ent)
@@ -67,18 +33,29 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("Login","Home");
             
         }
-        //[HttpPost]
-        //public IActionResult Login(DadosPessoais ent)
-        //{
-        //    var criarUsuarioLogin = new UsuarioViewModel();
-        //    criarUsuarioLogin.Usuario = ent.Email;
-        //    criarUsuarioLogin.Senha = ent.Cpf;
-        //    if (criarUsuarioLogin.Autenticado())
-        //    {
-        //        return RedirectToAction("Index", "DadosPessoais");
-        //    }
-        //    return RedirectToAction("Login", "Home");
-        //}
+      
+        public IActionResult Editar(int id)
+        {
+            DadosPessoais entidade = db.DadosPessoais.Find(id);
+            if (entidade == null)
+            {
+                return NotFound();
+            }
+            return View(entidade);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(DadosPessoais ent)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(ent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(ent);
+        }
+
 
         public IActionResult Excluir(int ID)
         {

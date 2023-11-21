@@ -24,9 +24,16 @@ namespace VisitaFacil.WebApp.Controllers
             return View();
         }
 
+    
+
         public IActionResult Visita() 
         { 
             return View(); 
+        }
+
+        public IActionResult Editar()
+        {
+            return View();
         }
 
         public IActionResult IdosoFormulario()
