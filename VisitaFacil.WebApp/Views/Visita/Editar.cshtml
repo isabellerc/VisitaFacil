@@ -1,56 +1,33 @@
 ﻿@model VisitaFacil.Dominio.Entities.Visita
+@{
+    ViewData["Title"] = "Editar Visita";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Meta tags, links, etc. -->
+<form asp-action="Editar" asp-controller="Visita" method="post">
+    <h1>Cadastrar Nova Visita</h1>
+@*
+    <label for="idIdoso">Selecione o Idoso:</label>
+    @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
 
-    <title>Editar Visitante</title>
-</head>
-<body>
+    <label for="idVisitante">Selecione o Visitante:</label>
+    @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))*@
 
-    <div class="body-container">
+    <input type="hidden" asp-for="idIdoso" />
+    <input type="hidden" asp-for="idVisitante" />
+    <input type="hidden" asp-for="idVisita" />
 
-        <div class="container" id="container">
-            <div>
-                <div class="form-container sign-up-container">
-                    @*//aqui é o formulário de cadastro:*@
+    <label for="dataVisita">Data da Visita:</label>
+    <input type="date" asp-for="dataVisita" />
 
-                    <form asp-action="Post" asp-controller="Visita" method="post">
-                        <h1>Cadastrar Nova Visita</h1>
+    <label for="horaEntrada">Hora de Entrada:</label>
+    <input type="time" asp-for="horaEntrada" />
 
-                        <!-- Outros campos de visita... -->
-                        <!-- Lista suspensa para selecionar o Idoso -->
-                        <label for="idIdoso">Selecione o Idoso:</label>
-                        @*<select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>*@
-                        @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
+    <label for="horaSaida">Hora de Saída:</label>
+    <input type="time" asp-for="horaSaida" />
 
-                        <!-- Lista suspensa para selecionar o Visitante -->
-                        <label for="idVisitante">Selecione o Visitante:</label>
-                        @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))
+    <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
+</form>
 
-
-                        <!-- Campo para a data da visita -->
-                        <label for="dataVisita">Data da Visita:</label>
-                        <input type="date" asp-for="dataVisita" />
-
-                        <!-- Campo para a hora de entrada -->
-                        <label for="horaEntrada">Hora de Entrada:</label>
-                        <input type="time" asp-for="horaEntrada" />
-
-                        <!-- Campo para a hora de saída -->
-                        <label for="horaSaida">Hora de Saída:</label>
-                        <input type="time" asp-for="horaSaida" />
-
-                        <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
-                    </form>
-
-
-                </div>
-            </div>
-        </div>
-
-    </div>
     <script type="text/javascript" src="index.js"></script>
     <script>
         //const signUpBtn = document.getElementById('signUp');
@@ -75,11 +52,6 @@
         });</script>
 
     <script src="/js/site.js"></script>
-
-
-</body>
-
-</html>
 
 
 <style>

@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore;
+//using VisitaFacil.Dados;
+//using VisitaFacil.Dominio.Entities;
+
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
+using VisitaFacil.WebApp.Models;
 
 namespace VisitaFacil.WebApp.Controllers
 {
@@ -22,40 +28,6 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
-        public IActionResult Editar(int id)
-        {
-            var ent = db.Visitante.Find(id);
-
-            if (ent == null)
-            {
-                return NotFound();
-            }
-
-            return View(ent);
-        }
-
-        [HttpPost]
-        public IActionResult Editar(Visitante ent)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    db.Entry(ent).State = EntityState.Modified;
-                    db.SaveChanges();
-                    TempData["Mensagem"] = "Alterações salvas com sucesso.";
-                    return RedirectToAction("VisitanteFormulario", "Home");
-                }
-                catch (Exception ex)
-                {
-                    TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
-                }
-            }
-
-            return View(ent);
-        }
-
-
         [HttpPost]
         public IActionResult Post(Visitante ent)
         {
@@ -64,6 +36,31 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("VisitanteFormulario", "Home");
 
         }
+
+        public IActionResult Editar(int id)
+        {
+            Visitante entidade = db.Visitante.Find(id);
+            if (entidade == null)
+            {
+                return NotFound();
+            }
+            return View(entidade);
+        }
+
+        [HttpPost]
+        public IActionResult Editar(Visitante ent)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(ent).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(ent);
+        }
+
+
+
 
         //[HttpPost]
         //public IActionResult Post(Visitante visitante)

@@ -1,57 +1,43 @@
 ﻿@model VisitaFacil.Dominio.Entities.Idoso
+@{
+    ViewData["Title"] = "Editar Idoso";
+}
 
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Meta tags, links, etc. -->
+<form asp-action="Editar" asp-controller="Idoso" method="post">
 
-  
-</head>
-<body>*@
- @*   <title>Editar Idoso</title>
-    <div class="body-container">
-        <div class="container" id="container">
-            <div>
-                <div class="form-container sign-up-container">*@
-                    <!-- Formulário de Edição -->
-                    <form asp-action="Editar" asp-controller="Idoso" method="post">
-                        <h1>Editar Idoso</h1>
-                        <p></p>
-                        <div class="flex-container">
-                            <div class="flex-item">
-                                <label for="Nome">Nome Completo</label>
-                                <input type="text" id="Nome" name="Nome" asp-for="Nome" value="@Model.Nome" />
-                            </div>
-                            <div class="flex-item">
-                                <label for="cpf">CPF</label>
-                                <input type="text" id="cpf" name="Cpf" asp-for="Cpf" value="@Model.Cpf" />
-                            </div>
-                            <div class="flex-item">
-                                <label for="dataNascimento">Data de Nascimento</label>
-                                <input type="date" id="dataNascimento" name="dataNascimento" asp-for="dataNascimento" value="@Model.dataNascimento.ToString("yyyy-MM-dd")" />
-                            </div>
-                            <div class="flex-item">
-                                <label for="Telefone">Telefone</label>
-                                <input type="string" id="telefone" name="Telefone" asp-for="Telefone" value="@Model.Telefone" />
-                            </div>
-                            <div class="flex-item">
-                                <label for="Email">E-mail</label>
-                                <input type="email" id="Email" name="Email" asp-for="Email" value="@Model.Email" />
-                            </div>
-                        </div>
-                        @*<input type="hidden" asp-for="idIdoso" />*@
-                    <button type="submit" id="btnCadastrar" class="btn-grad">Cadastrar</button>
-                        @*<button type="submit" id="btnEditar" class="btn-grad">Salvar Alterações</button>*@
-                    </form>
-            @*    </div>
-            </div>
+    <h1>Editar Idoso</h1>
+    <p></p>
+    <div class="flex-container">
+        <div class="flex-item">
+            <label for="Nome">Nome Completo</label>
+            <input type="text" id="Nome" name="Nome" asp-for="Nome" value="@Model.Nome" />
         </div>
-    </div>*@
+        <div class="flex-item">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="Cpf" asp-for="Cpf" value="@Model.Cpf" />
+        </div>
+        <div class="flex-item">
+            <label for="dataNascimento">Data de Nascimento</label>
+            <input type="date" id="dataNascimento" name="dataNascimento" asp-for="dataNascimento" value="@Model.dataNascimento.ToString("yyyy-MM-dd")" />
+        </div>
+        <div class="flex-item">
+            <label for="Telefone">Telefone</label>
+            <input type="string" id="telefone" name="Telefone" asp-for="Telefone" value="@Model.Telefone" />
+        </div>
+        <div class="flex-item">
+            <label for="Email">E-mail</label>
+            <input type="email" id="Email" name="Email" asp-for="Email" value="@Model.Email" />
+        </div>
+    </div>
+        <button type="submit" id="btnEditar" class="btn-grad">Editar</button>
+
+     <input type="hidden" asp-for="idIdoso" />
+    @*@<button type="submit" id="btnEditar" class="btn-grad">Salvar Alterações</button>*@
+ </form>
+
 
     <script type="text/javascript" src="index.js"></script>
-    <script>
-        // Código do JavaScript aqui
-    </script>
+
     <script src="/js/site.js"></script>
     <script>
         @*//botao de Editar*@
@@ -61,33 +47,27 @@
             container.classList.add('left-panel-active');
 
         });
+        </script>
+    <script>
+    document.getElementById('cpf').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 11) {
+            inputValue = inputValue.substring(0, 11);
+        }
+        let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        event.target.value = formattedValue;
+    });
     </script>
     <script>
-        document.getElementById('cpf').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 11) {
-                inputValue = inputValue.substring(0, 11);
-            }
-            let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-            event.target.value = formattedValue;
-        });
+    document.getElementById('telefone').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 11) {
+            inputValue = inputValue.substring(0, 11);
+        }
+        let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
+        event.target.value = formattedValue;
+    });
     </script>
-    <script>
-        document.getElementById('telefone').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 11) {
-                inputValue = inputValue.substring(0, 11);
-            }
-            let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
-            event.target.value = formattedValue;
-        });
-    </script>
-
-@*</body>
-
-</html>*@
-
-
 
 
 <style>
