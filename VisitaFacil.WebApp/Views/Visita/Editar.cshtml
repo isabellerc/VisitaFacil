@@ -5,12 +5,6 @@
 
 <form asp-action="Editar" asp-controller="Visita" method="post">
     <h1>Cadastrar Nova Visita</h1>
-@*
-    <label for="idIdoso">Selecione o Idoso:</label>
-    @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
-
-    <label for="idVisitante">Selecione o Visitante:</label>
-    @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))*@
 
     <input type="hidden" asp-for="idIdoso" />
     <input type="hidden" asp-for="idVisitante" />
@@ -26,6 +20,7 @@
     <input type="time" asp-for="horaSaida" />
 
     <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
+    <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
 </form>
 
     <script type="text/javascript" src="index.js"></script>

@@ -2,21 +2,6 @@
 @{
     ViewData["Title"] = "Editar Visitante";
 }
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Meta tags, links, etc. -->
-
-    <title>Editar Visitante</title>
-</head>
-<body>
-
-    <div class="body-container">
-
-        <div class="container" id="container">
-            <div>
-                <div class="form-container sign-up-container">
-                    aqui é o formulário de cadastro:*@
 
 <form asp-action="Editar" asp-controller="Visitante" method="post">
 
@@ -34,15 +19,11 @@
                         <input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
                         <input type="text" id="telefone" placeholder="Telefone " asp-for="Telefone" />
                         <input type="email" name="Email" placeholder="exemplo@gmail.com" asp-for="Email" />
-    <input type="hidden" asp-for="idVisitante" />
+                        <input type="hidden" asp-for="idVisitante" />
 
                         <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
+                        <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
                     </form>
-@*                </div>
-            </div>
-        </div>
-
-    </div>*@
 
     <script type="text/javascript" src="index.js"></script>
     <script>
@@ -152,9 +133,6 @@
 
     <script src="/js/site.js"></script>
 
-@*</body>
-
-</html>*@
 
 @*qualquer coisa descomentar daqui pra baixo:*@
 
