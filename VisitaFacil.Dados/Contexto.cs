@@ -29,20 +29,8 @@ namespace VisitaFacil.Dados
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //conexão para quando estiver fora do wifi da faculdade
-            optionsBuilder.UseSqlServer(
-                "Data source=201.62.57.93,1434;Database=BD044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
-                sqlServerOptionsAction: builder =>
-                {
-                    builder.EnableRetryOnFailure(
-                        maxRetryCount: 2, // Número máximo de tentativas
-                        maxRetryDelay: TimeSpan.FromSeconds(10), // Atraso máximo entre as tentativas
-                        errorNumbersToAdd: null // Números de erro personalizados a serem adicionados
-                    );
-                });
-
-            //Conexão para quando estiver no wifi faculdade
             //optionsBuilder.UseSqlServer(
-            //"Data source=bandeira,1434;Database=BD044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
+            //    "Data source=201.62.57.93,1434;Database=BD044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
             //    sqlServerOptionsAction: builder =>
             //    {
             //        builder.EnableRetryOnFailure(
@@ -51,6 +39,18 @@ namespace VisitaFacil.Dados
             //            errorNumbersToAdd: null // Números de erro personalizados a serem adicionados
             //        );
             //    });
+
+            //Conexão para quando estiver no wifi faculdade
+            optionsBuilder.UseSqlServer(
+            "Data source=bandeira,1434;Database=BD044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
+                sqlServerOptionsAction: builder =>
+                {
+                    builder.EnableRetryOnFailure(
+                        maxRetryCount: 2, // Número máximo de tentativas
+                        maxRetryDelay: TimeSpan.FromSeconds(10), // Atraso máximo entre as tentativas
+                        errorNumbersToAdd: null // Números de erro personalizados a serem adicionados
+                    );
+                });
 
             base.OnConfiguring(optionsBuilder);
         }
