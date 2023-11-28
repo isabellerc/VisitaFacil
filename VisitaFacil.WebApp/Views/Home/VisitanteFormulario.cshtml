@@ -1,32 +1,13 @@
 ﻿@using VisitaFacil.Dominio.Entities
 @model Visitante
 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
-    <title>Cadastro de Visitante </title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
-
-</head>
-<body>
+@*
 
     <div class="body-container">
 
         <div class="container" id="container">
             <div>
-                <div class="form-container sign-up-container">
+                <div class="form-container sign-up-container">*@
                     @*//aqui é o formulário de cadastro:*@
 
                     <form asp-action="Post" asp-controller="Visitante" method="post">
@@ -46,11 +27,11 @@
                         <button type="submit" id="btnCadastrar" class="btn-grad">Cadastrar</button>
                         <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
                     </form>
-                </div>
+        @*        </div>
             </div>
         </div>
 
-    </div>
+    </div>*@
 
     <script type="text/javascript" src="index.js"></script>
     <script>
@@ -160,13 +141,127 @@
 
     <script src="/js/site.js"></script>
 
-</body>
 
-</html> 
-
-@*qualquer coisa descomentar daqui pra baixo:*@
 
 <style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Libre Franklin', sans-serif;
+    }
+
+    h1 {
+        font-weight: bold;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 14px;
+        font-weight: 100;
+        line-height: 20px;
+        letter-spacing: 0.5px;
+        margin: 20px 0 30px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    a {
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+    }
+
+
+    .btn-grad {
+        background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%)
+    }
+
+    .btn-grad {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+        .btn-grad:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
+    #signIn {
+        background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);
+        color: #6441A5;
+    }
+
+    #signUp {
+        background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);
+        color: #6441A5;
+    }
+
+    form {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+    }
+
+    input {
+        background-color: #eee;
+        border: none;
+        padding: 8px 10px;
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .body-container {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #4568DC; /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #B06AB3, #4568DC)*/; /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #B06AB3, #4568DC);
+        transition: all 0.6s ease-in-out;
+    }
+
+
+
+    @@keyframes show {
+        0%,
+        49.99% {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        50%,
+        100% {
+            opacity: 1;
+            z-index: 5;
+        }
+    }
+
+</style>
+
+@*<style>
     * {
         box-sizing: border-box;
         margin: 0;
@@ -397,3 +492,4 @@
 
 
 
+*@

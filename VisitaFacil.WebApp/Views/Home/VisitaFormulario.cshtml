@@ -2,98 +2,62 @@
 @model Visita
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300&display=swap" rel="stylesheet">
-    <title>Cadastro do Idoso </title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+<form asp-action="Post" asp-controller="Visita" method="post">
+    <h1>Cadastrar Nova Visita</h1>
 
-</head>
-<body>
+    <!-- Outros campos de visita... -->
+    <!-- Lista suspensa para selecionar o Idoso -->
+    <label for="idIdoso">Selecione o Idoso:</label>
+    <!--<select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>-->
+    @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
 
-    <div class="body-container">
-
-        <div class="container" id="container">
-            <div>
-                <div class="form-container sign-up-container">
-                    <!--//aqui é o formulário de cadastro:-->
-
-                    <form asp-action="Post" asp-controller="Visita" method="post">
-                        <h1>Cadastrar Nova Visita</h1>
-
-                        <!-- Outros campos de visita... -->
-                        <!-- Lista suspensa para selecionar o Idoso -->
-                        <label for="idIdoso">Selecione o Idoso:</label>
-                        <!--<select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>-->
-                        @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
-
-                        <!-- Lista suspensa para selecionar o Visitante -->
-                        <label for="idVisitante">Selecione o Visitante:</label>
-                        @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))
+    <!-- Lista suspensa para selecionar o Visitante -->
+    <label for="idVisitante">Selecione o Visitante:</label>
+    @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))
 
 
-                        <!-- Campo para a data da visita -->
-                        <label for="dataVisita">Data da Visita:</label>
-                        <input type="date" asp-for="dataVisita" />
+    <!-- Campo para a data da visita -->
+    <label for="dataVisita">Data da Visita:</label>
+    <input type="date" asp-for="dataVisita" />
 
-                        <!-- Campo para a hora de entrada -->
-                        <label for="horaEntrada">Hora de Entrada:</label>
-                        <input type="time" asp-for="horaEntrada" />
+    <!-- Campo para a hora de entrada -->
+    <label for="horaEntrada">Hora de Entrada:</label>
+    <input type="time" asp-for="horaEntrada" />
 
-                        <!-- Campo para a hora de saída -->
-                        <label for="horaSaida">Hora de Saída:</label>
-                        <input type="time" asp-for="horaSaida" />
+    <!-- Campo para a hora de saída -->
+    <label for="horaSaida">Hora de Saída:</label>
+    <input type="time" asp-for="horaSaida" />
 
-                        <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
-                        <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
-                    </form>
+    
 
-
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <script type="text/javascript" src="index.js"></script>
-    <script>
-        //const signUpBtn = document.getElementById('signUp');
-        //const signInBtn = document.getElementById('signIn');
-        const container = document.getElementById('container');
-
-        //botao de btnCadastrar
-        const btnCadastrar = document.getElementById('btnCadastrar');
-        btnCadastrar.addEventListener('click', () => {
-            alert('Visita registrada com Sucesso');
-            container.classList.add('left-panel-active');
-
-        });
+    <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
+    <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
+</form>
 
 
-        signUpBtn.addEventListener('click', () => {
-            container.classList.add('right-panel-active');
-        });
+<script type="text/javascript" src="index.js"></script>
+<script>
+    const container = document.getElementById('container');
 
-        signInBtn.addEventListener('click', () => {
-            container.classList.remove('right-panel-active');
-        });
+    //botao btnCadastrar
+    const btnCadastrar = document.getElementById('btnCadastrar');
+    btnCadastrar.addEventListener('click', () => {
+        alert('Visita registrada com Sucesso');
+        container.classList.add('left-panel-active');
+    });
+
+    signUpBtn.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+    });
+
+    signInBtn.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
         
-    </script>
+</script>
 
-    <script src="/js/site.js"></script>
-
-
-</body>
-
-</html>
+<script src="/js/site.js"></script>
 
 
 <style>
@@ -194,11 +158,7 @@
         background: -webkit-linear-gradient(to right, #B06AB3, #4568DC); /* Chrome 10-25, Safari 5.1-6 */
         background: linear-gradient(to right, #B06AB3, #4568DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     }
-    /*#container{
-            padding: 0;
-            margin: 0;
-            width: 100%
-        }*/
+
 
     .container {
         background-color: #ffffff;
@@ -218,29 +178,6 @@
         transition: all 0.6s ease-in-out;
     }
 
-    /*  .sign-in-container {
-            left: 0;
-            width: 50%;
-            z-index: 2;
-        }*/
-
-    /*  .sign-up-container {
-            left: 0;
-            width: 50%;
-            opacity: 0;
-            z-index: 1;
-        }*/
-
-    /* .container.right-panel-active .sign-in-container {
-            transform: translateX(100%);
-        }
-
-        .container.right-panel-active .sign-up-container {
-            transform: translateX(100%);
-            opacity: 1;
-            z-index: 5;
-            animation: show 0.6s;
-        }*/
 
     @@keyframes show {
         0%,

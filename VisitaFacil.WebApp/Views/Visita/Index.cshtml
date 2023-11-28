@@ -1,6 +1,16 @@
 ﻿@using VisitaFacil.Dominio.Entities;
 @model IEnumerable<Visita>
 
+    <br><br />
+
+<h1 style="text-align: center;">VISITA</h1>
+
+<br><br />
+
+<button onclick="window.location.href='@Url.Action("VisitaFormulario", "Home")'">Registro Visita</button>
+
+<br><br/>
+
 <table class="table table-striped table-sm">
     <thead>
         <tr>
@@ -10,12 +20,16 @@
             <th>Data da Visita</th>
             <th>Hora de Entrada</th>
             <th>Hora de Saída</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            // Determinar a classe de fundo com base na paridade da linha
+            var rowClass = (item.idVisita % 2 == 0) ? "bg-white" : "bg-lilac";
+
+            <tr class="@rowClass">
                 <td>
                     @item.idVisita
                 </td>
@@ -36,16 +50,54 @@
                 </td>
 
                 <td>
-                    <a class="btn btn-info btn-xs" asp-action="Editar" asp-controller="Visita" asp-route-id="@item.idVisita">
-                        <i class="glyphicon glyphicon-edit"></i> Editar
-                    </a>
+                    <a class="btn btn-custom btn-xs" asp-action="Editar" asp-controller="Visita" asp-route-id="@item.idVisita">
+                        <!-- SVG do ícone de lápis com fundo lilás -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill=#8B008B class="bi bi-pencil-square" viewBox="0 0 16 16">
+                            <rect width="16" height="16" fill="#8B008B" />
+                            <path fill="#fff" d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                            <path fill="#fff" fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z" />
+                        </svg>
 
+                    </a>
                     <a class="btn btn-danger btn-xs" asp-action="excluir" asp-controller="Visita" asp-route-id="@item.idVisita">
-                        <i class="glyphicon glyphicon-trash"></i> Excluir
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+                        </svg>
                     </a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<a class="btn btn-info btn-xs" href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
+
+<br><br/>
+<br><br/>
+<br><br/>
+
+<br>
+<br />
+<a class="btn btn-info btn-xs btn-grad" href="javascript:history.go(-1)" style="background-color: #808080; float: left; border: none;">Voltar</a>
+
+
+
+<style>
+ 
+
+    .bg-white {
+        background-color: #ffffff; /* ou qualquer cor branca desejada */
+    }
+
+    .bg-lilac {
+        background-color: #800080; /* substitua pelo código de cor lilás desejado */
+    }
+
+    .btn-custom {
+        background-color: #8B008B; /* Cor roxa mais escura */
+        color: #fff; /* Cor do texto, ajuste conforme necessário */
+    }
+
+        .btn-custom:hover {
+            background-color: #6A007B; /* Cor roxa mais escura para efeito hover, ajuste conforme necessário */
+        }
+
+</style>                  
