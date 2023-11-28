@@ -8,7 +8,7 @@
 
 <br><br/>
 
-<button onclick="window.location.href='@Url.Action("VisitanteFormulario", "Home")'">Cadastro Visitante</button>
+<button onclick="window.location.href='@Url.Action("VisitanteFormulario", "Home")'" class="btn-grad btn-align-right">Cadastrar Visitante</button>
 
 <br><br/>
 
@@ -95,7 +95,7 @@
         }
     </tbody>
 </table>
-<a class="btn btn-info btn-xs" href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
+<a class="btn btn-info btn-xs" href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
 
 <style>
 
@@ -104,7 +104,58 @@
         color: #fff; /* Cor do texto, ajuste conforme necessário */
     }
 
-        .btn-custom:hover {
-            background-color: #6A007B; /* Cor roxa mais escura para efeito hover, ajuste conforme necessário */
+    .btn-custom:hover {
+        background-color: #6A007B; /* Cor roxa mais escura para efeito hover, ajuste conforme necessário */
+    }
+
+    .btn-align-right {
+        float: right;
+    }
+
+    .btn-grad {
+        background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%)
+    }
+
+    .btn-grad {
+        margin: 5px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+      .btn-grad-cinza {
+        background-image: linear-gradient(to right, #808080 0%, #555555 51%, #808080 100%);
+    }
+
+    .btn-grad-cinza {
+        margin: 5px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+        .btn-grad-cinza:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
         }
+  
 </style>

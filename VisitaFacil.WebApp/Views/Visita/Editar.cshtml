@@ -4,7 +4,7 @@
 }
 
 <form asp-action="Editar" asp-controller="Visita" method="post">
-    <h1>Editar Registro de Visita</h1>
+    <h1 style="text-align: center">Editar Registro de Visita</h1>
 
     <input type="hidden" asp-for="idIdoso" />
     <input type="hidden" asp-for="idVisitante" />
@@ -19,14 +19,14 @@
     <label for="horaSaida">Hora de Saída:</label>
     <input type="time" asp-for="horaSaida" />
 
+    <div class ="flex-container">
+    <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
     <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
-    <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
+    <div/>
 </form>
 
     <script type="text/javascript" src="index.js"></script>
     <script>
-        //const signUpBtn = document.getElementById('signUp');
-        //const signInBtn = document.getElementById('signIn');
         const container = document.getElementById('container');
 
         //botao de btnCadastrar
@@ -85,14 +85,20 @@
         margin: 15px 0;
     }
 
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px; /* Ajuste conforme necessário */
+    }
+
 
     .btn-grad {
         background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%)
     }
 
     .btn-grad {
-        margin: 10px;
-        padding: 15px 45px;
+        margin: 5px;
+        padding: 10px 25px;
         text-align: center;
         text-transform: uppercase;
         transition: 0.5s;
@@ -103,11 +109,34 @@
         cursor: pointer;
     }
 
-        .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-        }
+    .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .btn-grad-cinza {
+        background-image: linear-gradient(to right, #808080 0%, #555555 51%, #808080 100%);
+    }
+
+    .btn-grad-cinza {
+        margin: 5px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .btn-grad-cinza:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 
     #signIn {
         background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);

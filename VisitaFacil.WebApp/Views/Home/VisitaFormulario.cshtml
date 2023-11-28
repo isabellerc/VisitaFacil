@@ -29,10 +29,10 @@
     <label for="horaSaida">Hora de Saída:</label>
     <input type="time" asp-for="horaSaida" />
 
-    
-
+    <div class="flex-container">
+    <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
     <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
-    <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
+    </div>
 </form>
 
 
@@ -85,6 +85,35 @@
         margin: 20px 0 30px;
     }
 
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px; /* Ajuste conforme necessário */
+    }
+
+    .btn-grad-cinza {
+        background-image: linear-gradient(to right, #808080 0%, #555555 51%, #808080 100%);
+    }
+
+    .btn-grad-cinza {
+        margin: 5px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+    .btn-grad-cinza:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
+
     span {
         font-size: 12px;
     }
@@ -102,8 +131,8 @@
     }
 
     .btn-grad {
-        margin: 10px;
-        padding: 15px 45px;
+        margin: 5px;
+        padding: 10px 25px;
         text-align: center;
         text-transform: uppercase;
         transition: 0.5s;
@@ -114,11 +143,11 @@
         cursor: pointer;
     }
 
-        .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-        }
+    .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+    }
 
     #signIn {
         background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);

@@ -3,136 +3,30 @@
     ViewData["Title"] = "Editar Visitante";
 }
 
+<h1 style="text-align: center;">Editar Visitante</h1>
+
 <form asp-action="Editar" asp-controller="Visitante" method="post">
 
-                        <h1>Editar Visitante</h1>
 
-                        <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
-                        <input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
-                        <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
-                        <input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
-                        <input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
-                        <input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
-                        <input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />
-                        <input type="text" name="Bairro" id="bairro" placeholder="Bairro" asp-for="Bairro" />
-                        <input type="text" name="Cidade" id="cidade" placeholder="Cidade" asp-for="Cidade" />
-                        <input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
-                        <input type="text" id="telefone" placeholder="Telefone " asp-for="Telefone" />
-                        <input type="email" name="Email" placeholder="exemplo@gmail.com" asp-for="Email" />
-                        <input type="hidden" asp-for="idVisitante" />
+    <input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
+    <input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
+    <input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
+    <input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
+    <input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
+    <input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
+    <input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />
+    <input type="text" name="Bairro" id="bairro" placeholder="Bairro" asp-for="Bairro" />
+    <input type="text" name="Cidade" id="cidade" placeholder="Cidade" asp-for="Cidade" />
+    <input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
+    <input type="text" id="telefone" placeholder="Telefone " asp-for="Telefone" />
+    <input type="email" name="Email" placeholder="exemplo@gmail.com" asp-for="Email" />
+    <input type="hidden" asp-for="idVisitante" />
 
-                        <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
-                        <a href="javascript:history.go(-1)" class="btn-grad">Voltar</a>
-                    </form>
-
-    <script type="text/javascript" src="index.js"></script>
-    <script>
-        const container = document.getElementById('container');
-        const btnCadastrar = document.getElementById('btnCadastrar');
-        const signUpBtn = document.getElementById('signUp'); // Adicione esta linha
-        const signInBtn = document.getElementById('signIn'); // Adicione esta linha
-
-        btnCadastrar.addEventListener('click', () => {
-            alert('Usuário Cadastrado com Sucesso');
-            container.classList.add('left-panel-active');
-        });
-
-        signUpBtn.addEventListener('click', () => {
-            container.classList.add('right-panel-active');
-        });
-
-        signInBtn.addEventListener('click', () => {
-            container.classList.remove('right-panel-active');
-        });
-    </script>
-
-    <script>
-        document.getElementById('telefone').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 11) {
-                inputValue = inputValue.substring(0, 11);
-            }
-            let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
-            event.target.value = formattedValue;
-        });
-    </script>
-
-    <script>
-        document.getElementById('cep').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 8) {
-                inputValue = inputValue.substring(0, 8);
-            }
-            let formattedValue = inputValue.replace(/(\d{5})(\d{3})/, '$1-$2');
-            event.target.value = formattedValue;
-        });
-    </script>
-
-    <script>
-        document.getElementById('cpf').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 11) {
-                inputValue = inputValue.substring(0, 11);
-            }
-            let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-            event.target.value = formattedValue;
-        });
-    </script>
-
-    <script>
-        function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-                // Atualiza os campos com os valores.
-                document.getElementById('rua').value = conteudo.logradouro;
-                document.getElementById('bairro').value = conteudo.bairro;
-                document.getElementById('cidade').value = conteudo.localidade;
-                document.getElementById('uf').value = conteudo.uf;
-            } else {
-                // CEP não Encontrado.
-                limpa_formulário_cep();
-                alert("CEP não encontrado.");
-            }
-        }
-
-        function pesquisacep(valor) {
-            //Nova variável "cep" somente com dígitos.
-            var cep = valor.replace(/\D/g, '');
-
-            //Verifica se campo cep possui valor informado.
-            if (cep != "") {
-                //Expressão regular para validar o CEP.
-                var validacep = /^[0-9]{8}$/;
-
-                //Valida o formato do CEP.
-                if (validacep.test(cep)) {
-                    // Preenche os campos com "..." enquanto consulta webservice.
-                    document.getElementById('rua').value = "...";
-                    document.getElementById('bairro').value = "...";
-                    document.getElementById('cidade').value = "...";
-                    document.getElementById('uf').value = "...";
-
-                    //Cria um elemento javascript.
-                    var script = document.createElement('script');
-
-                    //Sincroniza com o callback.
-                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-                    //Insere script no documento e carrega o conteúdo.
-                    document.body.appendChild(script);
-                } else {
-                    //cep é inválido.
-                    limpa_formulário_cep();
-                    alert("Formato de CEP inválido.");
-                }
-            } else {
-                //cep sem valor, limpa formulário.
-                limpa_formulário_cep();
-            }
-        };
-    </script>
-
-    <script src="/js/site.js"></script>
-
+    <div class="flex-container">
+        <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
+        <button type="submit" id="btnEditar" class="btn-grad">Editar</button>
+    </div>
+</form>
 
 <style>
     * {
@@ -159,6 +53,35 @@
         margin: 20px 0 30px;
     }
 
+    .btn-grad-cinza {
+        background-image: linear-gradient(to right, #808080 0%, #555555 51%, #808080 100%);
+    }
+
+    .btn-grad-cinza {
+        margin: 5px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+        .btn-grad-cinza:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
+
+    .flex-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px; /* Ajuste conforme necessário */
+    }
+
     span {
         font-size: 12px;
     }
@@ -176,8 +99,8 @@
     }
 
     .btn-grad {
-        margin: 10px;
-        padding: 15px 45px;
+        margin: 5px;
+        padding: 10px 25px;
         text-align: center;
         text-transform: uppercase;
         transition: 0.5s;
@@ -252,3 +175,111 @@
     }
 
 </style>
+
+<script type="text/javascript" src="index.js"></script>
+<script>
+    const container = document.getElementById('container');
+    const btnCadastrar = document.getElementById('btnCadastrar');
+    const signUpBtn = document.getElementById('signUp'); // Adicione esta linha
+    const signInBtn = document.getElementById('signIn'); // Adicione esta linha
+
+    btnCadastrar.addEventListener('click', () => {
+        alert('Usuário Cadastrado com Sucesso');
+        container.classList.add('left-panel-active');
+    });
+
+    signUpBtn.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+    });
+
+    signInBtn.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+</script>
+
+<script>
+    document.getElementById('telefone').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 11) {
+            inputValue = inputValue.substring(0, 11);
+        }
+        let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
+        event.target.value = formattedValue;
+    });
+</script>
+
+<script>
+    document.getElementById('cep').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 8) {
+            inputValue = inputValue.substring(0, 8);
+        }
+        let formattedValue = inputValue.replace(/(\d{5})(\d{3})/, '$1-$2');
+        event.target.value = formattedValue;
+    });
+</script>
+
+<script>
+    document.getElementById('cpf').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 11) {
+            inputValue = inputValue.substring(0, 11);
+        }
+        let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        event.target.value = formattedValue;
+    });
+</script>
+
+<script>
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            // Atualiza os campos com os valores.
+            document.getElementById('rua').value = conteudo.logradouro;
+            document.getElementById('bairro').value = conteudo.bairro;
+            document.getElementById('cidade').value = conteudo.localidade;
+            document.getElementById('uf').value = conteudo.uf;
+        } else {
+            // CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+
+    function pesquisacep(valor) {
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if (validacep.test(cep)) {
+                // Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value = "...";
+                document.getElementById('bairro').value = "...";
+                document.getElementById('cidade').value = "...";
+                document.getElementById('uf').value = "...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+            } else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+</script>
+
+<script src="/js/site.js"></script>

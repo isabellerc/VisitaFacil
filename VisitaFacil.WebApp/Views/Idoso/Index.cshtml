@@ -7,10 +7,10 @@
 
 <br><br/>
 
-<button onclick="window.location.href='@Url.Action("IdosoFormulario", "Home")'" class="btn-grad">Cadastro Idoso</button>
+<button onclick="window.location.href='@Url.Action("IdosoFormulario", "Home")'" class="btn-grad btn-align-right">Registrar Idoso</button>
 
 
-<br><br/>
+<br><br/><br><br />
 
 <table class="table table-striped table-sm">
     <thead>
@@ -90,9 +90,13 @@
         background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%)
     }
 
+    .btn-align-right {
+        float: right;
+    }
+
     .btn-grad {
-        margin: 10px;
-        padding: 15px 45px;
+        margin: 5px;
+        padding: 10px 25px;
         text-align: center;
         text-transform: uppercase;
         transition: 0.5s;
