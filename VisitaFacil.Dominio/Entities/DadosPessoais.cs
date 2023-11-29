@@ -17,7 +17,7 @@ namespace VisitaFacil.Dominio.Entities
         [Key]
         public int ID { get; set; }
         public string Nome { get; set; }
-        //[CpfValidation(ErrorMessage = "CPF inválido.")]
+        [CpfValidation(ErrorMessage = "CPF inválido.")]
         public string Cpf { get; set; }
         public DateTime dataNascimento { get; set; }
 
