@@ -9,7 +9,7 @@ namespace VisitaFacil.WebApp.Controllers
     public class VisitaController : Controller
     {
      
-            private Contexto db = new Contexto();
+        private Contexto db = new Contexto();
 
         public IActionResult Index()
         {
@@ -58,7 +58,5 @@ namespace VisitaFacil.WebApp.Controllers
 
                 return RedirectToAction("Index", "Visita"); // está redirecionando errado
             }
-        
-
     }
 }

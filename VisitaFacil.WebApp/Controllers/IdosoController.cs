@@ -56,67 +56,6 @@ namespace VisitaFacil.WebApp.Controllers
             //return View(ent);
         }
 
-
-
-        //[HttpPost]
-        //public IActionResult Editar(Idoso ent)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            db.Entry(ent).State = EntityState.Modified;
-        //            db.SaveChanges();
-        //            TempData["Mensagem"] = "Alterações salvas com sucesso.";
-        //            return RedirectToAction("IdosoFormulario", "Home");
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            TempData["Erro"] = $"Erro ao salvar alterações: {ex.Message}";
-        //        }
-        //    }
-
-        //    return View(ent);
-        //}
-
-
-
-
-
-        //[HttpPost]
-        //public IActionResult Post(Idoso ent)
-        //{
-        //    try
-        //    {
-        //        db.Idoso.Add(ent);
-        //        db.SaveChanges();
-        //        return RedirectToAction("IdosoFormulario", "Home");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Aqui você pode logar a exceção se desejar
-        //        // Exemplo: logger.LogError($"Erro ao processar o post: {ex.Message}");
-
-        //        // Retorne uma mensagem de erro para a tela
-        //        ViewBag.ErrorMessage = "Ocorreu um erro ao processar a solicitação. Por favor, tente novamente.";
-        //        return View("Error"); // Supondo que você tenha uma view chamada "Error"
-        //    }
-        //}
-
-
-        //[HttpPost]
-        //public IActionResult Login(Idoso ent)
-        //{
-        //    var criarUsuarioLogin = new UsuarioViewModel();
-        //    criarUsuarioLogin.Usuario = ent.Email;
-        //    criarUsuarioLogin.Senha = ent.Cpf;
-        //    if (criarUsuarioLogin.Autenticado())
-        //    {
-        //        return RedirectToAction("Index", "Idso");
-        //    }
-        //    return RedirectToAction("Login", "Home");
-        //}
-
         public IActionResult Excluir(int ID)
         {
             var objeto = db
@@ -129,8 +68,4 @@ namespace VisitaFacil.WebApp.Controllers
             return RedirectToAction("Index");
         }
     }
-
 }
-
-
-

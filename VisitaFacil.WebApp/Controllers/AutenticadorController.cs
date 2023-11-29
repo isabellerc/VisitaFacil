@@ -14,7 +14,6 @@ namespace VisitaFacil.WebApp.Controllers
     {
         private Contexto db = new Contexto();
 
-
         //esse esta certo qq coisa descomentar:
         public async Task<IActionResult> Autenticar(string email, string senha)
         {
@@ -50,13 +49,11 @@ namespace VisitaFacil.WebApp.Controllers
             }
         }
 
-
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home"); // Redirecione para a página inicial ou outra página após o logout         
         }
-
 
         public IActionResult Index()
         {
@@ -67,8 +64,6 @@ namespace VisitaFacil.WebApp.Controllers
         {
             return View();
         }
-
-        
 
         [HttpGet]
         public IActionResult Erro()

@@ -50,8 +50,6 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
                 .Property(f => f.Email)
                 .HasColumnName("EMAIL")
                 .HasColumnType("varchar(150)");
-
-            //builder.HasBaseType<DadosPessoais>();
         }
     }
 }

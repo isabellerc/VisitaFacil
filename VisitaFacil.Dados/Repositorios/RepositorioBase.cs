@@ -58,7 +58,5 @@ namespace VisitaFacil.Dados.Repositorios
         {
             Contexto.SaveChanges();
         }
-
-
     }
 }

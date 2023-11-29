@@ -55,7 +55,6 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
-
         public IActionResult Excluir(int ID)
         {
             var objeto = db
@@ -66,20 +65,12 @@ namespace VisitaFacil.WebApp.Controllers
             db.SaveChanges();
 
             return RedirectToAction("Index");
+        }    
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+        return View();
         }
-
-       
-
-            [HttpGet]
-            public IActionResult Login()
-            {
-            return View();
-            }
-
-            
-        
-
     }
-
 }
-

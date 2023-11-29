@@ -10,7 +10,7 @@
     <!-- Lista suspensa para selecionar o Idoso -->
     <label for="idIdoso">Selecione o Idoso:</label>
     <!--<select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>-->
-    @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome"))
+    @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome", "-- Selecione --"))
 
     <!-- Lista suspensa para selecionar o Visitante -->
     <label for="idVisitante">Selecione o Visitante:</label>

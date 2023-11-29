@@ -11,7 +11,6 @@ namespace VisitaFacil.WebApp.Controllers
     {
         private Contexto db = new Contexto();
 
-
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -23,8 +22,6 @@ namespace VisitaFacil.WebApp.Controllers
         {
             return View();
         }
-
-    
 
         public IActionResult Visita() 
         { 
@@ -55,7 +52,6 @@ namespace VisitaFacil.WebApp.Controllers
             return View(new Visita());
         }
 
-
         public IActionResult Login() // nao sei se está certo 
         {
             {
@@ -63,7 +59,6 @@ namespace VisitaFacil.WebApp.Controllers
             }
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -78,7 +73,5 @@ namespace VisitaFacil.WebApp.Controllers
         {
             return View();
         }
-
-
     }
 }

@@ -19,8 +19,6 @@ namespace VisitaFacil.Dados
         public DbSet<Visitante> Visitante { get; set; }
         public DbSet<Visita> Visita { get; set; }
 
-        //public DbSet<Usuario> Usuario { get; set; } 
-
         //vou comentar:
         public Contexto(DbContextOptions<Contexto> options) : base(options)
         {
@@ -40,41 +38,15 @@ namespace VisitaFacil.Dados
                     );
                 });
 
-            //Conexão para quando estiver no wifi faculdade
-            //optionsBuilder.UseSqlServer(
-            //"Data source=bandeira,1434;Database=BD044263;User ID=RA044263;Password=044263;TrustServerCertificate=True",
-            //    sqlServerOptionsAction: builder =>
-            //    {
-            //        builder.EnableRetryOnFailure(
-            //            maxRetryCount: 2, // Número máximo de tentativas
-            //            maxRetryDelay: TimeSpan.FromSeconds(10), // Atraso máximo entre as tentativas
-            //            errorNumbersToAdd: null // Números de erro personalizados a serem adicionados
-            //        );
-            //    });
-
             base.OnConfiguring(optionsBuilder);
         }
 
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-
-          
+        {        
             modelBuilder.ApplyConfiguration(new DadosPessoaisConfiguration());
             modelBuilder.ApplyConfiguration(new IdosoConfiguration());
             modelBuilder.ApplyConfiguration(new VisitanteConfiguration());
             modelBuilder.ApplyConfiguration(new VisitaConfiguration());
-            //modelBuilder.ApplyConfiguration(new UsuarioConfiguration());
-            //modelBuilder.Entity<RegistroVisita>().HasNoKey();
-            //modelBuilder.ApplyConfiguration(new InstituicaoConfiguration());
-
-            //modelBuilder.ApplyConfiguration(new LoginConfiguration());
-            //modelBuilder.ApplyConfiguration(new EnderecoConfiguration());
-            //modelBuilder.ApplyConfiguration(new CidadeConfiguration());
-            //modelBuilder.ApplyConfiguration(new VisitaConfiguration());
-
         }
     }
 }
-
-

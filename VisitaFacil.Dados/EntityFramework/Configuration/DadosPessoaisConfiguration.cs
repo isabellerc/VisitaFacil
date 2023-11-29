@@ -89,13 +89,6 @@ namespace VisitaFacil.Dados.EntityFramework.Configuration
                 .HasColumnName("Email")
                 .HasColumnType("nvarchar(255)");
 
-            //builder
-            //    .Property(f => f.Ativo)
-            //    .HasColumnName("Ativo")
-            //    .HasColumnType("bit");
-
-
-
             // Outras configurações, como índices, restrições, etc., podem ser adicionadas aqui conforme necessário.
         }
 
