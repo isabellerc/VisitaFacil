@@ -57,9 +57,9 @@
                     <form asp-action="Autenticar" asp-controller="Autenticador" method="post">
                         <h1>Login</h1>
 
-                        @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
                         {
-                            <p style="color: red;">@ViewData["ErrorMessage"]</p>
+                            <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
                         }
 
                         <input asp-for="Email" type="email" placeholder="E-mail" />

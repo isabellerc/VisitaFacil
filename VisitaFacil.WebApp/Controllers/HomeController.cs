@@ -58,6 +58,9 @@ namespace VisitaFacil.WebApp.Controllers
 
         public IActionResult Login() // nao sei se está certo 
         {
+            {
+                ViewBag.ErrorMessage = TempData["ErrorMessage"];
+            }
             return View();
         }
 

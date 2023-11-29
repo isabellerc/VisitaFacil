@@ -74,7 +74,7 @@ namespace VisitaFacil.WebApp.Controllers
             [HttpGet]
             public IActionResult Login()
             {
-                return View();
+            return View();
             }
 
             

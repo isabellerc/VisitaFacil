@@ -45,6 +45,7 @@ namespace VisitaFacil.WebApp.Controllers
             {
                 // Falha na autenticação
                 ModelState.AddModelError(string.Empty, "Nome de usuário ou senha inválidos.");
+                TempData["ErrorMessage"] = "Nome de usuário ou senha inválidos.";
                 return RedirectToAction("Login", "Home");
             }
         }
