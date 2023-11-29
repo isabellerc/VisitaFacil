@@ -56,14 +56,20 @@
                 <div class="form-container sign-in-container">
                     <form asp-action="Autenticar" asp-controller="Autenticador" method="post">
                         <h1>Login</h1>
+
+                        @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+                        {
+                            <p style="color: red;">@ViewData["ErrorMessage"]</p>
+                        }
+
                         <input asp-for="Email" type="email" placeholder="E-mail" />
                         <input asp-for="Senha" type="password" placeholder="Senha" />
                         <a href="#">Esqueceu a senha?</a>
                         <button type="submit" class="btn-grad">Entrar</button>
                     </form>
-
-
                 </div>
+
+
             </div>
 
 

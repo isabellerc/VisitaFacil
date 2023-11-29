@@ -6,13 +6,13 @@ using VisitaFacil.WebApp.Models;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace VisitaFacil.WebApp.Controllers
 {
     public class AutenticadorController : Controller
     {
         private Contexto db = new Contexto();
-
 
 
         //esse esta certo qq coisa descomentar:
@@ -45,11 +45,8 @@ namespace VisitaFacil.WebApp.Controllers
             {
                 // Falha na autenticação
                 ModelState.AddModelError(string.Empty, "Nome de usuário ou senha inválidos.");
-                return View("Cadastros");
-
+                return RedirectToAction("Login", "Home");
             }
-
-
         }
 
 
