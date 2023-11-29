@@ -24,7 +24,6 @@ namespace VisitaFacil.WebApp.Controllers
             return View(ent);
         }
 
-
         [HttpPost]
         public IActionResult Post(DadosPessoais ent)
         {
