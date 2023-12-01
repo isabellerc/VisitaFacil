@@ -4,8 +4,9 @@
 }
 
 <form asp-action="Editar" asp-controller="Visita" method="post">
+    <br><br />
     <h1 style="text-align: center">Editar Registro de Visita</h1>
-
+    <br><br />
     <input type="hidden" asp-for="idIdoso" />
     <input type="hidden" asp-for="idVisitante" />
     <input type="hidden" asp-for="idVisita" />
@@ -20,7 +21,8 @@
     <input type="time" asp-for="horaSaida" />
 
     <div class ="flex-container">
-    <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
+    <a href="/Visita/Index" class="btn-grad-cinza">Voltar</a>
+    @*<a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>*@
     <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
     <div/>
 </form>

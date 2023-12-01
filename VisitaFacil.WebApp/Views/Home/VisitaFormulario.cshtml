@@ -1,9 +1,47 @@
 ﻿@using VisitaFacil.Dominio.Entities
 @model Visita
 
-
-
 <form asp-action="Post" asp-controller="Visita" method="post">
+    <br><br/>
+    <h1>Cadastrar Nova Visita</h1>
+    <br><br />
+    <div class="row">
+        <div class="col-5">
+            <label for="idIdoso">Selecione o Idoso:</label>
+            @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome", "-- Selecione --"))
+        </div>
+        <br><br />
+        <div class="col-5">
+            <label for="idVisitante">Selecione o Visitante:</label>
+            @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))
+        </div>
+        <br><br /> 
+        <div class="col-4">
+            <label for="dataVisita">Data da Visita:</label>
+            <input type="date" asp-for="dataVisita" />
+        </div>
+       
+        <div class="col-4">
+            <label for="horaEntrada">Hora de Entrada:</label>
+            <input type="time" asp-for="horaEntrada" />
+        </div>
+        <div class="col-4">
+            <label for="horaSaida">Hora de Saída:</label>
+            <input type="time" asp-for="horaSaida" />
+        </div>
+    </div>
+    <br><br />
+    <div class="flex-container">
+        <a href="/Visita/Index" class="btn-grad-cinza">Voltar</a>
+        <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
+    </div>
+</form>
+
+
+
+
+
+@*<form asp-action="Post" asp-controller="Visita" method="post">
     <h1>Cadastrar Nova Visita</h1>
 
     <!-- Outros campos de visita... -->
@@ -33,31 +71,9 @@
     <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
     <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
     </div>
-</form>
+</form>*@
 
 
-<script type="text/javascript" src="index.js"></script>
-<script>
-    const container = document.getElementById('container');
-
-    //botao btnCadastrar
-    const btnCadastrar = document.getElementById('btnCadastrar');
-    btnCadastrar.addEventListener('click', () => {
-        alert('Visita registrada com Sucesso');
-        container.classList.add('left-panel-active');
-    });
-
-    signUpBtn.addEventListener('click', () => {
-        container.classList.add('right-panel-active');
-    });
-
-    signInBtn.addEventListener('click', () => {
-        container.classList.remove('right-panel-active');
-    });
-        
-</script>
-
-<script src="/js/site.js"></script>
 
 
 <style>
@@ -76,6 +92,7 @@
         margin: 0;
         margin-bottom: 1rem;
     }
+
 
     p {
         font-size: 14px;
@@ -289,6 +306,30 @@
         transform: translateX(20%);
     }
 </style>
+
+
+<script type="text/javascript" src="index.js"></script>
+<script>
+    const container = document.getElementById('container');
+
+    //botao btnCadastrar
+    const btnCadastrar = document.getElementById('btnCadastrar');
+    btnCadastrar.addEventListener('click', () => {
+        alert('Visita registrada com Sucesso');
+        container.classList.add('left-panel-active');
+    });
+
+    signUpBtn.addEventListener('click', () => {
+        container.classList.add('right-panel-active');
+    });
+
+    signInBtn.addEventListener('click', () => {
+        container.classList.remove('right-panel-active');
+    });
+
+</script>
+
+<script src="/js/site.js"></script>
 
 
 

@@ -56,20 +56,19 @@
                 <div class="form-container sign-in-container">
                     <form asp-action="Autenticar" asp-controller="Autenticador" method="post">
                         <h1>Login</h1>
-
-                        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
-                        {
-                            <div class="alert alert-danger">@ViewBag.ErrorMessage</div>
-                        }
-
                         <input asp-for="Email" type="email" placeholder="E-mail" />
                         <input asp-for="Senha" type="password" placeholder="Senha" />
-                        <a href="#">Esqueceu a senha?</a>
+
+                          @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+                        {
+                            <span class="error-message">@ViewBag.ErrorMessage</span>
+                        }
                         <button type="submit" class="btn-grad">Entrar</button>
+
+                        
+                      
                     </form>
-                </div>
-
-
+                </div
             </div>
 
 
@@ -218,6 +217,11 @@ h1 {
     margin: 0;
     margin-bottom: 1rem;
 }
+    .error-message{
+        color: red;
+        font-weight: bold;
+}
+
 
 p {
     font-size: 14px;
