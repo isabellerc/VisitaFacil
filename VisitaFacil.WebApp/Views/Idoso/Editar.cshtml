@@ -28,7 +28,13 @@
    
 <br><br/>
 <div class="flex-container">
-    <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
+        <a href="@Url.Action("Index", "Idoso")" class="btn-grad-cinza">Voltar</a>
+
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <span class="error-message">@ViewBag.ErrorMessage</span>
+        }
+
     <button type="submit" id="btnEditar" class="btn-grad">Editar</button>
 </div>
 

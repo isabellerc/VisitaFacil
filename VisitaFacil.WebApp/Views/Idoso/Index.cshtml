@@ -73,7 +73,7 @@
         }
     </tbody>
 </table>
-<a class="btn btn-info btn-xs" href="@Url.Action("Cadastros", "Home")" class="btn-grad">Voltar</a>
+<a class="btn-grad-cinza" href="@Url.Action("Cadastros", "Home")" style="background-color: #808080; float: left; border: none;">Voltar</a>
 
 <style>
     .btn-custom {
@@ -112,4 +112,27 @@
         color: #fff;
         text-decoration: none;
     }
+
+    .btn-grad-cinza {
+        background-image: linear-gradient(to right, #808080 0%, #555555 51%, #808080 100%);
+    }
+
+    .btn-grad-cinza {
+        margin: 5px;
+        padding: 10px 25px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        border-radius: 10px;
+        display: block;
+        cursor: pointer;
+    }
+
+        .btn-grad-cinza:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+        }
 </style>

@@ -49,6 +49,36 @@ namespace VisitaFacil.WebApp.Controllers
             }
         }
 
+        //public async Task<IActionResult> AutenticarCpfIdoso(string cpf)
+        //{
+        //    var usuario = await db.DadosPessoais.FirstOrDefaultAsync(u => u.Cpf == cpf);
+
+        //    if (usuario != null)
+        //    {
+        //        // Autenticação bem-sucedida
+        //        var claims = new List<Claim>
+        //        {
+        //            new Claim(ClaimTypes.Cpf, usuario.Cpf),
+
+        //        };
+
+        //        var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        //        var authProperties = new AuthenticationProperties
+        //        {
+        //            IsPersistent = true,
+        //        };
+
+        //        return RedirectToAction("IdosoFormulario", "Home");
+        //    }
+        //    else
+        //    {
+        //        // Falha na autenticação
+        //        ModelState.AddModelError(string.Empty, "CPF Inválido");
+        //        TempData["ErrorMessage"] = "CPF Inválido";
+        //        return RedirectToAction("Editar", "Idoso");
+        //    }
+        //}
+
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);

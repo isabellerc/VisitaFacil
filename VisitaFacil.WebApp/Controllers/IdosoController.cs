@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 using VisitaFacil.Dados;
 using VisitaFacil.Dominio.Entities;
 using VisitaFacil.WebApp.Models;
@@ -23,6 +24,15 @@ namespace VisitaFacil.WebApp.Controllers
                 var ent = new Idoso();
                 return View(ent);
             }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
+        }
 
         [HttpPost]
         public IActionResult Post(Idoso ent)
