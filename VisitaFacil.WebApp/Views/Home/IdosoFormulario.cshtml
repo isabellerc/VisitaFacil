@@ -39,45 +39,7 @@
         </div>
 </form>
 
-   
-    <script type="text/javascript" src="index.js"></script>
-    <script>
-        // Código do JavaScript aqui
-    </script>
-    <script src="/js/site.js"></script>
-   <script>
-        @*//botao de btnCadastrar*@
-            const btnCadastrar = document.getElementById('btnCadastrar');
-        btnCadastrar.addEventListener('click', () => {
-            alert('Idoso Cadastrado com Sucesso');
-            container.classList.add('left-panel-active');
-
-        });
-   </script>
-    <script>
-        document.getElementById('cpf').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 11) {
-                inputValue = inputValue.substring(0, 11);
-            }
-            let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-            event.target.value = formattedValue;
-        });
-    </script>
-    <script>
-        document.getElementById('telefone').addEventListener('input', function (event) {
-            let inputValue = event.target.value.replace(/\D/g, '');
-            if (inputValue.length > 11) {
-                inputValue = inputValue.substring(0, 11);
-            }
-            let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
-            event.target.value = formattedValue;
-        });
-    </script>
-  
-@*</body>
-
-</html>*@
+ 
 
 <style>
     * {
@@ -227,4 +189,40 @@
             z-index: 5;
         }
     }
-</style> 
+</style>
+
+
+<script type="text/javascript" src="index.js"></script>
+<script>
+    // Código do JavaScript aqui
+</script>
+<script src="/js/site.js"></script>
+<script>
+    @*//botao de btnCadastrar*@
+                const btnCadastrar = document.getElementById('btnCadastrar');
+    btnCadastrar.addEventListener('click', () => {
+        alert('Idoso Cadastrado com Sucesso');
+        container.classList.add('left-panel-active');
+
+    });
+</script>
+<script>
+    document.getElementById('cpf').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 11) {
+            inputValue = inputValue.substring(0, 11);
+        }
+        let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        event.target.value = formattedValue;
+    });
+</script>
+<script>
+    document.getElementById('telefone').addEventListener('input', function (event) {
+        let inputValue = event.target.value.replace(/\D/g, '');
+        if (inputValue.length > 11) {
+            inputValue = inputValue.substring(0, 11);
+        }
+        let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
+        event.target.value = formattedValue;
+    });
+</script>
