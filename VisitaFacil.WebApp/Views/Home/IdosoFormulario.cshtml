@@ -7,8 +7,9 @@
 <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
 
 <form asp-action="Post" asp-controller="Idoso" method="post">
+    <br />
     <h1>Cadastrar Novo Idoso</h1>
-    <p></p>
+    <br />
     <div class="flex-item">
         <label for="Nome">Nome Completo</label>
         <input type="text" id="Nome" name="Nome" asp-for="Nome" />
@@ -20,7 +21,7 @@
     </div>
     <div class="flex-item">
         <label for="dataNascimento">Data de Nascimento</label>
-        <input type="date" id="dataNascimento" name="dataNascimento" asp-for="dataNascimento" />
+        <input type="date" id="dataNascimento" name="dataNascimento" asp-for="dataNascimento"/>
     </div>
     <div class="flex-item">
         <label for="Telefone">Telefone</label>
@@ -101,6 +102,10 @@
         line-height: 20px;
         letter-spacing: 0.5px;
         margin: 20px 0 30px;
+    }
+
+    .flex-item {
+        width: 40%; /* Ajuste conforme necessário */
     }
 
     .flex-container {

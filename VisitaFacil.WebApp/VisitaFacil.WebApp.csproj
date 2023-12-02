@@ -13,6 +13,22 @@
   <ItemGroup>
     <Content Remove="Views\Home\Entrar.cshtml" />
     <Content Remove="Views\Shared\_Layout2.cshtml" />
+    <Content Remove="wwwroot\css\FotoIntituicao.jpg" />
+    <Content Remove="wwwroot\css\FundoIsaVitor.png" />
+    <Content Remove="wwwroot\css\Fundoo.png" />
+    <Content Remove="wwwroot\css\fundoTelaHome.jpg" />
+    <Content Remove="wwwroot\css\FundoTelaIsaVitor.png" />
+    <Content Remove="wwwroot\css\idosos2.png.webp" />
+    <Content Remove="wwwroot\css\idosos2.webp" />
+    <Content Remove="wwwroot\css\idosos3.jpg" />
+    <Content Remove="wwwroot\css\imagemidosos.jpg" />
+    <Content Remove="wwwroot\css\imagemidosos3.jpg" />
+    <Content Remove="wwwroot\css\imagemidosos5.jpg" />
+    <Content Remove="wwwroot\css\imagemidosos8.jpg" />
+    <Content Remove="wwwroot\css\Isabelle Resende.png" />
+    <Content Remove="wwwroot\css\Logo.jpeg" />
+    <Content Remove="wwwroot\css\Visita.webp" />
+    <Content Remove="wwwroot\fotoVitor.png" />
   </ItemGroup>
 
   <ItemGroup>

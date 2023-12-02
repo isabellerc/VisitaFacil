@@ -1,23 +1,71 @@
 ﻿@{
     ViewData["Title"] = "MostrarTela";
 }
+<br />
+<h1 style="text-align:center;">CADASTROS</h1>
+<br/>
 
-<p align="center">CADASTROS:</p>
+<a href="@Url.Action("Index", "Idoso")">
+    <section>
+        <img src="../css/Idoso.jpeg" alt="Imagem Idoso">
+        <div class="button-container" align="center">
+            <!-- O botão também é um link -->
+            Cadastrar Idoso
+        </div>
+    </section>
+</a>
 
-<div class="button-container" align="center">
-    <button onclick="window.location.href='@Url.Action("Index", "Idoso")'">Idoso</button>
-    <button onclick="window.location.href='@Url.Action("Index", "Visitante")'">Visitante</button>
-    <button onclick="window.location.href='@Url.Action("Index", "Visita")'">Visita</button>
-    <button onclick="window.location.href='@Url.Action("Index", "DadosPessoais")'">Usuários</button>
-</div>
+<a href="@Url.Action("Index", "Visitante")">
+<section>
+    <img src="../css/Visitante.jpg" alt="Imagem Visitante" style="height: 140px; width: 250px; margin-right: 20px;">
+    <div class="button-container" align="center">
+        Cadastrar Visitante
+    </div>
+</section>
+</a>
+
+<a href="@Url.Action("Index", "Visita")">
+<section>
+    <img src="../css/Visita.jpg" alt="Imagem Visita">
+    <div class="button-container" align="center">
+        Registrar Visita
+    </div>
+</section>
+</a>
+
+<a href="@Url.Action("Index", "DadosPessoais")">
+<section style="display: flex; align-items: center;">
+    <img src="../css/Funcionario.jpg" alt="Imagem Usuários" style="height: 140px; margin-right: 20px;">
+    <div class="button-container" align="center">
+       Configurar Usuários
+    </div>
+</section>
+</a>
+
 
 
 
 <style>
+
+    section {
+        height: 150px;
+       /* background-color: rgba(255, 255, 255, 0.5);*/
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease; /* Adicionando transição suave */
+
+    }
+
+        section:hover {
+            background-color: rgba(107, 58, 158, 0.8); /* Adicionando transparência ao passar o mouse */
+        }
+
     /* Estilo dos botões */
-    .button-container button {
-        background-color: purple;
-        color: white;
+    .button-container {
+        color: white; /* Cor do texto branca */
+        font-size: 20px;
+        text-decoration: none;
         padding: 10px 20px;
         border: none;
         border-radius: 10px;
@@ -25,15 +73,30 @@
         margin-bottom: 10px; /* Espaçamento entre os botões */
         display: block; /* Faz com que os botões ocupem a largura total disponível */
         text-align: left; /* Alinha o texto à esquerda dentro do botão */
+        background-color: transparent; /* Removendo a cor de fundo */
     }
+
+
 
         /* Estilo de hover para realçar quando o mouse passa por cima */
         .button-container button:hover {
             background-color: #6b3a9e; /* Tom mais escuro de roxo para realce */
+            color: white;
         }
 
+    body {
+        background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%);
+        /*margin: 0 !important;*/
+        color: white; /* Adicionei essa linha para garantir que o texto seja legível no fundo escuro */
+    }
 
+ 
 
+        /* Estilo para as imagens */
+        section img {
+            max-width: 250px;
+            height: auto;
+            max-height: 100%;
+            margin-right: 20px;
+        }
 </style>
-
-

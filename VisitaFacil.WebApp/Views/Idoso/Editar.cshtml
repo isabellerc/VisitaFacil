@@ -9,6 +9,7 @@
 <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
 
 <form asp-action="Editar" asp-controller="Idoso" method="post">
+    <br />
     <h1 style="text-align: center">Editar Idoso</h1>
     <div class="flex-item">
         <label for="Nome">Nome Completo</label>
@@ -32,7 +33,7 @@
         <input type="email" id="Email" name="Email" asp-for="Email" value="@Model.Email" />
     </div>
    
-<br><br/>
+<br/>
 <div class="flex-container">
         <a href="@Url.Action("Index", "Idoso")" class="btn-grad-cinza">Voltar</a>
 
@@ -47,17 +48,6 @@
     <input type="hidden" asp-for="idIdoso" />
 </form>
 
-
-<script>
-    const container = document.getElementById('container');
-    const btnEditar = document.getElementById('btnEditar');
-
-    btnEditar.addEventListener('click', () => {
-        alert('Edição Realizada com Sucesso');
-        container.classList.add('left-panel-active');
-        return RedirectToAction("Index");
-    });
-</script>
 
 <style>
     * {
@@ -91,7 +81,7 @@
     }
 
     .flex-item {
-        width: 100%; /* Ajuste conforme necessário */
+        width: 60%; /* Ajuste conforme necessário */
     }
 
 
@@ -213,6 +203,19 @@
 <script type="text/javascript" src="index.js"></script>
 
 <script src="/js/site.js"></script>
+
+
+<script>
+    const container = document.getElementById('container');
+    const btnEditar = document.getElementById('btnEditar');
+
+    btnEditar.addEventListener('click', () => {
+        alert('Edição Realizada com Sucesso');
+        container.classList.add('left-panel-active');
+        return RedirectToAction("Index");
+    });
+</script>
+
 <script>
     @*//botao de Editar*@
                         const btnEditar = document.getElementById('btnEditar');

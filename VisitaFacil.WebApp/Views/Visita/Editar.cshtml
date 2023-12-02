@@ -7,24 +7,29 @@
     <br><br />
     <h1 style="text-align: center">Editar Registro de Visita</h1>
     <br><br />
-    <input type="hidden" asp-for="idIdoso" />
-    <input type="hidden" asp-for="idVisitante" />
-    <input type="hidden" asp-for="idVisita" />
+    <input type="hidden" asp-for="idIdoso" class="flex-item" />
+    <input type="hidden" asp-for="idVisitante" class="flex-item" />
+    <input type="hidden" asp-for="idVisita" class="flex-item" />
 
-    <label for="dataVisita">Data da Visita:</label>
-    <input type="date" asp-for="dataVisita" />
+    <div class="flex-item">
+        <label for="dataVisita">Data da Visita:</label>
+        <input type="date" asp-for="dataVisita" />
+    </div>
 
-    <label for="horaEntrada">Hora de Entrada:</label>
-    <input type="time" asp-for="horaEntrada" />
+    <div class="flex-item">
+        <label for="horaEntrada">Hora de Entrada:</label>
+        <input type="time" asp-for="horaEntrada" />
+    </div>
 
-    <label for="horaSaida">Hora de Saída:</label>
-    <input type="time" asp-for="horaSaida" />
+    <div class="flex-item">
+        <label for="horaSaida">Hora de Saída:</label>
+        <input type="time" asp-for="horaSaida" />
+    </div>
 
-    <div class ="flex-container">
+    <div class="flex-container">
         <a href="@Url.Action("Index", "Visita")" class="btn-grad-cinza">Voltar</a>
-    @*<a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>*@
         <button type="submit" id="btnEditar" class="btn-grad">Editar</button>
-    <div/>
+    </div>
 </form>
 
     <script type="text/javascript" src="index.js"></script>
@@ -77,6 +82,14 @@
         font-size: 14px;
         text-decoration: none;
         margin: 15px 0;
+    }
+
+    .flex-item {
+        width: 40%; /* Ajuste conforme necessário */
+    }
+
+    .flex-item label {
+        margin-bottom: 5px; /* Ajuste conforme necessário */
     }
 
     .flex-container {

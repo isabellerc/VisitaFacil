@@ -10,127 +10,85 @@
 
 	@*//aqui é o formulário de cadastro:*@
 	<form asp-action="Editar" asp-controller="DadosPessoais" method="post">
-
+		<br /><br />
 		<h1>Editar Conta</h1>
+		<br />
+		<div class="row">
+			<div class="col-6">
+				<label class="left-label" for="Nome">Nome Completo:</label>
+				<input type="text" name="Nome" id="Nome" asp-for="Nome" />
+			</div>
 
-		<input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
-		@Html.ValidationMessageFor(a => a.Cpf)
-		<input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
-		<input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
-		<input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
-		<input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
-		<input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
-		<input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />
-		<input type="text" name="Bairro" id="bairro" placeholder="Bairro" asp-for="Bairro" />
-		<input type="text" name="Cidade" id="cidade" placeholder="Cidade" asp-for="Cidade" />
-		<input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
-		<input type="text" id="telefone" placeholder="Telefone" asp-for="Telefone" />
-		<input type="email" name="Email" placeholder="exemplo@gmail.com" asp-for="Email" />
-		<input type="password" name="Senha" placeholder="Senha" asp-for="Senha" />
+			<div class="col-3">
+				<label class="left-label" for="Cpf">CPF:</label>
+				<input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
+				@Html.ValidationMessageFor(a => a.Cpf)
+			</div>
 
+			<div class="col-3">
+				<label class="left-label" for="dataNascimento">Data de Nascimento:</label>
+				<input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
+			</div>
 
-	<button type="submit" id="btnEditar" class="btn-grad">Editar</button>
-	<a href="@Url.Action("Index", "DadosPessoais")" class="btn-grad">Voltar</a>
+			<div class="col-3">
+				<label class="left-label" for="CEP">CEP:</label>
+				<input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Logradouro">Logradouro:</label>
+				<input type="text" name="Logradouro" id="rua" placeholder="Logradouro" asp-for="Logradouro" />
+			</div>
+
+			<div class="col-2">
+				<label class="left-label" for="Numero">Número:</label>
+				<input type="text" name="Numero" id="numero" placeholder="Número" asp-for="Numero" />
+			</div>
+
+			<div class="col-3">
+				<label class="left-label" for="Complemento">Complemento:</label>
+				<input type="text" name="Complemento" id="complemento" placeholder="Complemento" asp-for="Complemento" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Bairro">Bairro:</label>
+				<input type="text" name="Bairro" id="bairro" placeholder="Bairro" asp-for="Bairro" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Cidade">Cidade:</label>
+				<input type="text" name="Cidade" id="cidade" placeholder="Cidade" asp-for="Cidade" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Estado">Estado:</label>
+				<input type="text" name="Estado" id="uf" placeholder="Estado" asp-for="Estado" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Telefone">Telefone:</label>
+				<input type="text" id="telefone" placeholder="Telefone" asp-for="Telefone" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Email">E-mail:</label>
+				<input type="email" name="Email" placeholder="exemplo@gmail.com" asp-for="Email" />
+			</div>
+
+			<div class="col-4">
+				<label class="left-label" for="Senha">Senha:</label>
+				<input type="password" name="Senha" placeholder="Senha" asp-for="Senha" />
+			</div>
+		</div>
+		<br />
+		<div class="flex-container">
+			<a href="@Url.Action("Index", "DadosPessoais")" class="btn-grad-cinza">Voltar</a>
+			<button type="submit" id="btnEditar" class="btn-grad">Editar</button>
+		</div>
+
 	</form>
 
 
-@*//Aqui é o login:*@
-
-
-<script src="/js/site.js"></script>
-
-<script>
-	const container = document.getElementById('container');
-	const btnEditar = document.getElementById('btnEditar');
-
-	btnEditar.addEventListener('click', () => {
-		alert('Edição Realizada com Sucesso');
-		container.classList.add('left-panel-active');
-		return RedirectToAction("Index");
-	});
-</script>
-
-<script>
-
-
-	function meu_callback(conteudo) {
-		if (!("erro" in conteudo)) {
-			// Atualiza os campos com os valores.
-			document.getElementById('rua').value = conteudo.logradouro;
-			document.getElementById('bairro').value = conteudo.bairro;
-			document.getElementById('cidade').value = conteudo.localidade;
-			document.getElementById('uf').value = conteudo.uf;
-		} else {
-			// CEP não Encontrado.
-			limpa_formulário_cep();
-			alert("CEP não encontrado.");
-		}
-	}
-
-	document.getElementById('cep').addEventListener('input', function (event) {
-		let inputValue = event.target.value.replace(/\D/g, '');
-		if (inputValue.length > 8) {
-			inputValue = inputValue.substring(0, 8);
-		}
-		let formattedValue = inputValue.replace(/(\d{5})(\d{3})/, '$1-$2');
-		event.target.value = formattedValue;
-	});
-
-
-	document.getElementById('cpf').addEventListener('input', function (event) {
-		let inputValue = event.target.value.replace(/\D/g, '');
-		if (inputValue.length > 11) {
-			inputValue = inputValue.substring(0, 11);
-		}
-		let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-		event.target.value = formattedValue;
-	});
-
-	document.getElementById('telefone').addEventListener('input', function (event) {
-		let inputValue = event.target.value.replace(/\D/g, '');
-		if (inputValue.length > 11) {
-			inputValue = inputValue.substring(0, 11);
-		}
-		let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
-		event.target.value = formattedValue;
-	});
-
-	function pesquisacep(valor) {
-		//Nova variável "cep" somente com dígitos.
-		var cep = valor.replace(/\D/g, '');
-
-		//Verifica se campo cep possui valor informado.
-		if (cep != "") {
-			//Expressão regular para validar o CEP.
-			var validacep = /^[0-9]{8}$/;
-
-			//Valida o formato do CEP.
-			if (validacep.test(cep)) {
-				// Preenche os campos com "..." enquanto consulta webservice.
-				document.getElementById('rua').value = "...";
-				document.getElementById('bairro').value = "...";
-				document.getElementById('cidade').value = "...";
-				document.getElementById('uf').value = "...";
-
-				//Cria um elemento javascript.
-				var script = document.createElement('script');
-
-				//Sincroniza com o callback.
-				script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
-
-				//Insere script no documento e carrega o conteúdo.
-				document.body.appendChild(script);
-			} else {
-				//cep é inválido.
-				limpa_formulário_cep();
-				alert("Formato de CEP inválido.");
-			}
-		} else {
-			//cep sem valor, limpa formulário.
-			limpa_formulário_cep();
-		}
-	};
-</script>
 
 <style>
 	* {
@@ -142,6 +100,7 @@
 	body {
 		font-family: 'Libre Franklin', sans-serif;
 	}
+
 
 	h1 {
 		font-weight: bold;
@@ -168,14 +127,19 @@
 		margin: 15px 0;
 	}
 
+	.flex-container {
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px; /* Ajuste conforme necessário */
+	}
 
 	.btn-grad {
 		background-image: linear-gradient(to right, #6441A5 0%, #2a0845 51%, #6441A5 100%)
 	}
 
 	.btn-grad {
-		margin: 10px;
-		padding: 15px 45px;
+		margin: 5px;
+		padding: 10px 25px;
 		text-align: center;
 		text-transform: uppercase;
 		transition: 0.5s;
@@ -186,11 +150,34 @@
 		cursor: pointer;
 	}
 
-		.btn-grad:hover {
-			background-position: right center; /* change the direction of the change here */
-			color: #fff;
-			text-decoration: none;
-		}
+	.btn-grad:hover {
+		background-position: right center; /* change the direction of the change here */
+		color: #fff;
+		text-decoration: none;
+	}
+
+	.btn-grad-cinza {
+		background-image: linear-gradient(to right, #808080 0%, #555555 51%, #808080 100%);
+	}
+
+	.btn-grad-cinza {
+		margin: 5px;
+		padding: 10px 25px;
+		text-align: center;
+		text-transform: uppercase;
+		transition: 0.5s;
+		background-size: 200% auto;
+		color: white;
+		border-radius: 10px;
+		display: block;
+		cursor: pointer;
+	}
+
+	.btn-grad-cinza:hover {
+		background-position: right center; /* change the direction of the change here */
+		color: #fff;
+		text-decoration: none;
+	}
 
 	#signIn {
 		background-image: linear-gradient(to right, #fff 0%, #f7f3f3 51%, #fff 100%);
@@ -354,3 +341,98 @@
 		transform: translateX(20%);
 	}
 </style>
+
+<script src="/js/site.js"></script>
+
+<script>
+	const container = document.getElementById('container');
+	const btnEditar = document.getElementById('btnEditar');
+
+	btnEditar.addEventListener('click', () => {
+		alert('Edição Realizada com Sucesso');
+		container.classList.add('left-panel-active');
+		return RedirectToAction("Index");
+	});
+</script>
+
+<script>
+
+
+	function meu_callback(conteudo) {
+		if (!("erro" in conteudo)) {
+			// Atualiza os campos com os valores.
+			document.getElementById('rua').value = conteudo.logradouro;
+			document.getElementById('bairro').value = conteudo.bairro;
+			document.getElementById('cidade').value = conteudo.localidade;
+			document.getElementById('uf').value = conteudo.uf;
+		} else {
+			// CEP não Encontrado.
+			limpa_formulário_cep();
+			alert("CEP não encontrado.");
+		}
+	}
+
+	document.getElementById('cep').addEventListener('input', function (event) {
+		let inputValue = event.target.value.replace(/\D/g, '');
+		if (inputValue.length > 8) {
+			inputValue = inputValue.substring(0, 8);
+		}
+		let formattedValue = inputValue.replace(/(\d{5})(\d{3})/, '$1-$2');
+		event.target.value = formattedValue;
+	});
+
+
+	document.getElementById('cpf').addEventListener('input', function (event) {
+		let inputValue = event.target.value.replace(/\D/g, '');
+		if (inputValue.length > 11) {
+			inputValue = inputValue.substring(0, 11);
+		}
+		let formattedValue = inputValue.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+		event.target.value = formattedValue;
+	});
+
+	document.getElementById('telefone').addEventListener('input', function (event) {
+		let inputValue = event.target.value.replace(/\D/g, '');
+		if (inputValue.length > 11) {
+			inputValue = inputValue.substring(0, 11);
+		}
+		let formattedValue = '(' + inputValue.substring(0, 2) + ') ' + inputValue.substring(2, 7) + '-' + inputValue.substring(7, 11);
+		event.target.value = formattedValue;
+	});
+
+	function pesquisacep(valor) {
+		//Nova variável "cep" somente com dígitos.
+		var cep = valor.replace(/\D/g, '');
+
+		//Verifica se campo cep possui valor informado.
+		if (cep != "") {
+			//Expressão regular para validar o CEP.
+			var validacep = /^[0-9]{8}$/;
+
+			//Valida o formato do CEP.
+			if (validacep.test(cep)) {
+				// Preenche os campos com "..." enquanto consulta webservice.
+				document.getElementById('rua').value = "...";
+				document.getElementById('bairro').value = "...";
+				document.getElementById('cidade').value = "...";
+				document.getElementById('uf').value = "...";
+
+				//Cria um elemento javascript.
+				var script = document.createElement('script');
+
+				//Sincroniza com o callback.
+				script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+				//Insere script no documento e carrega o conteúdo.
+				document.body.appendChild(script);
+			} else {
+				//cep é inválido.
+				limpa_formulário_cep();
+				alert("Formato de CEP inválido.");
+			}
+		} else {
+			//cep sem valor, limpa formulário.
+			limpa_formulário_cep();
+		}
+	};
+</script>

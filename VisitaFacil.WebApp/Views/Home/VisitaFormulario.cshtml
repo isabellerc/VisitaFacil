@@ -3,7 +3,7 @@
 
 <form asp-action="Post" asp-controller="Visita" method="post">
     <br><br/>
-    <h1>Cadastrar Nova Visita</h1>
+    <h1>Registrar Visita</h1>
     <br><br />
     <div class="row">
         <div class="col-5">
@@ -36,44 +36,6 @@
         <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
     </div>
 </form>
-
-
-
-
-
-@*<form asp-action="Post" asp-controller="Visita" method="post">
-    <h1>Cadastrar Nova Visita</h1>
-
-    <!-- Outros campos de visita... -->
-    <!-- Lista suspensa para selecionar o Idoso -->
-    <label for="idIdoso">Selecione o Idoso:</label>
-    <!--<select asp-for="idIdoso" asp-items="@ViewBag.Idosos"></select>-->
-    @Html.DropDownListFor(f => f.idIdoso, new SelectList(ViewBag.Idosos, "idIdoso", "Nome", "-- Selecione --"))
-
-    <!-- Lista suspensa para selecionar o Visitante -->
-    <label for="idVisitante">Selecione o Visitante:</label>
-    @Html.DropDownListFor(f => f.idVisitante, new SelectList(ViewBag.Visitantes, "idVisitante", "Nome", "-- Selecione --"))
-
-
-    <!-- Campo para a data da visita -->
-    <label for="dataVisita">Data da Visita:</label>
-    <input type="date" asp-for="dataVisita" />
-
-    <!-- Campo para a hora de entrada -->
-    <label for="horaEntrada">Hora de Entrada:</label>
-    <input type="time" asp-for="horaEntrada" />
-
-    <!-- Campo para a hora de saída -->
-    <label for="horaSaida">Hora de Saída:</label>
-    <input type="time" asp-for="horaSaida" />
-
-    <div class="flex-container">
-    <a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>
-    <button type="submit" id="btnCadastrar" class="btn-grad">REGISTRAR</button>
-    </div>
-</form>*@
-
-
 
 
 <style>
