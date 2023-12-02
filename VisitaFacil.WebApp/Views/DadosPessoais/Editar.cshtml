@@ -3,12 +3,18 @@
 	ViewData["Title"] = "Editar DadosPessoais";
 }
 
+<script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+
 	@*//aqui é o formulário de cadastro:*@
 	<form asp-action="Editar" asp-controller="DadosPessoais" method="post">
 
 		<h1>Editar Conta</h1>
 
 		<input type="text" name="Nome" placeholder="Nome Completo" asp-for="Nome" />
+		@Html.ValidationMessageFor(a => a.Cpf)
 		<input type="text" id="cpf" name="Cpf" id="cpf" placeholder="CPF" asp-for="Cpf" />
 		<input type="date" name="dataNascimento" placeholder="Data de Nascimento" asp-for="dataNascimento" />
 		<input type="text" name="CEP" id="cep" placeholder="CEP" onblur="pesquisacep(this.value)" asp-for="CEP" />
@@ -23,7 +29,7 @@
 		<input type="password" name="Senha" placeholder="Senha" asp-for="Senha" />
 
 
-		<button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
+	<button type="submit" id="btnEditar" class="btn-grad">Editar</button>
 	<a href="@Url.Action("Index", "DadosPessoais")" class="btn-grad">Voltar</a>
 	</form>
 
@@ -34,6 +40,19 @@
 <script src="/js/site.js"></script>
 
 <script>
+	const container = document.getElementById('container');
+	const btnEditar = document.getElementById('btnEditar');
+
+	btnEditar.addEventListener('click', () => {
+		alert('Edição Realizada com Sucesso');
+		container.classList.add('left-panel-active');
+		return RedirectToAction("Index");
+	});
+</script>
+
+<script>
+
+
 	function meu_callback(conteudo) {
 		if (!("erro" in conteudo)) {
 			// Atualiza os campos com os valores.

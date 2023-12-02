@@ -23,30 +23,22 @@
     <div class ="flex-container">
         <a href="@Url.Action("Index", "Visita")" class="btn-grad-cinza">Voltar</a>
     @*<a href="javascript:history.go(-1)" class="btn-grad-cinza">Voltar</a>*@
-    <button type="submit" id="btnCadastrar" class="btn-grad">Editar</button>
+        <button type="submit" id="btnEditar" class="btn-grad">Editar</button>
     <div/>
 </form>
 
     <script type="text/javascript" src="index.js"></script>
-    <script>
-        const container = document.getElementById('container');
 
-        //botao de btnCadastrar
-        const btnCadastrar = document.getElementById('btnCadastrar');
-        btnCadastrar.addEventListener('click', () => {
-            alert('Visita registrada com Sucesso');
-            container.classList.add('left-panel-active');
+<script>
+    const container = document.getElementById('container');
+    const btnEditar = document.getElementById('btnEditar');
 
-        });
-
-
-        signUpBtn.addEventListener('click', () => {
-            container.classList.add('right-panel-active');
-        });
-
-        signInBtn.addEventListener('click', () => {
-            container.classList.remove('right-panel-active');
-        });</script>
+    btnEditar.addEventListener('click', () => {
+        alert('Edição Realizada com Sucesso');
+        container.classList.add('left-panel-active');
+        return RedirectToAction("Index");
+    });
+</script>
 
     <script src="/js/site.js"></script>
 
