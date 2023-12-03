@@ -58,5 +58,17 @@ namespace VisitaFacil.WebApp.Controllers
 
                 return RedirectToAction("Index", "Visita"); // está redirecionando errado
             }
+
+        public IActionResult Excluir(int ID)
+        {
+            var objeto = db
+                .Visita
+                .First(f => f.idVisita == ID);
+
+            db.Visita.Remove(objeto);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -73,57 +73,57 @@ namespace VisitaFacil.WebApp.Controllers
         public IActionResult Post (Visitante ent)
         {
 
-            if (ent.Cpf == null)
-            {
-                return null; //ValidationResult.Success;
-            }
+            //if (ent.Cpf == null)
+            //{
+            //    return null; //ValidationResult.Success;
+            //}
 
-            string cpf = ent.Cpf.ToString().Replace(".", "").Replace("-", "");
+            //string cpf = ent.Cpf.ToString().Replace(".", "").Replace("-", "");
 
-            if (!IsDigitsOnly(cpf) || cpf.Length != 11)
-            {
-                return null; //ValidationResult("O CPF deve conter exatamente 11 dígitos numéricos.");
-            }
+            //if (!IsDigitsOnly(cpf) || cpf.Length != 11)
+            //{
+            //    return null; //ValidationResult("O CPF deve conter exatamente 11 dígitos numéricos.");
+            //}
 
-            if (IsRepeatingDigits(cpf))
-            {
-                return null; //ValidationResult("O CPF não pode ter todos os dígitos iguais.");
-            }
+            //if (IsRepeatingDigits(cpf))
+            //{
+            //    return null; //ValidationResult("O CPF não pode ter todos os dígitos iguais.");
+            //}
 
-            int sum = 0;
-            for (int i = 0; i < 9; i++)
-            {
-                sum += int.Parse(cpf[i].ToString()) * (10 - i);
-            }
+            //int sum = 0;
+            //for (int i = 0; i < 9; i++)
+            //{
+            //    sum += int.Parse(cpf[i].ToString()) * (10 - i);
+            //}
 
-            int remainder = sum % 11;
-            int firstVerifier = remainder < 2 ? 0 : 11 - remainder;
+            //int remainder = sum % 11;
+            //int firstVerifier = remainder < 2 ? 0 : 11 - remainder;
 
-            if (int.Parse(cpf[9].ToString()) != firstVerifier)
-            {
-                return null; //ValidationResult("O CPF informado não é válido.");
-            }
+            //if (int.Parse(cpf[9].ToString()) != firstVerifier)
+            //{
+            //    return null; //ValidationResult("O CPF informado não é válido.");
+            //}
 
-            sum = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                sum += int.Parse(cpf[i].ToString()) * (11 - i);
-            }
+            //sum = 0;
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    sum += int.Parse(cpf[i].ToString()) * (11 - i);
+            //}
 
-            remainder = sum % 11;
-            int secondVerifier = remainder < 2 ? 0 : 11 - remainder;
+            //remainder = sum % 11;
+            //int secondVerifier = remainder < 2 ? 0 : 11 - remainder;
 
-            if (int.Parse(cpf[10].ToString()) != secondVerifier)
-            {
-                return null; //ValidationResult("O CPF informado não é válido.");
-            }
+            //if (int.Parse(cpf[10].ToString()) != secondVerifier)
+            //{
+            //    return null; //ValidationResult("O CPF informado não é válido.");
+            //}
 
-            else
-            {
+            //else
+            //{
                 db.Visitante.Add(ent);
                 db.SaveChanges();
                 return RedirectToAction("Index", "Visitante");
-            }
+            
         }
         public IActionResult Editar(int id)
         {
